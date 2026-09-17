@@ -304,6 +304,8 @@ ul {
 
 /* Project Card */
 .project-card {
+  grid-column: span 1 !important;
+  width: 100%;
   border-radius: var(--radius-card);
   overflow: hidden;
   background: var(--surface);
