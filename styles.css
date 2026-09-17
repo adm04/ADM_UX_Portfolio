@@ -379,6 +379,38 @@ ul {
   padding-block: clamp(24px, 5vw, 60px) clamp(48px, 6vw, 80px);
 }
 
+/* Category Groupings */
+.project-category {
+  margin-bottom: clamp(48px, 6vw, 76px);
+}
+
+.project-category:last-child {
+  margin-bottom: 0;
+}
+
+.category-header {
+  margin-bottom: clamp(18px, 2.5vw, 24px);
+}
+
+.category-eyebrow {
+  display: block;
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748B;
+  margin-bottom: 4px;
+}
+
+.category-title {
+  font-family: var(--font);
+  font-size: clamp(22px, 2.8vw, 30px);
+  font-weight: 800;
+  letter-spacing: -0.025em;
+  color: #0F172A;
+}
+
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
@@ -443,6 +475,19 @@ ul {
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+/* Branding Project Thumbnails */
+.card-thumb-elaara {
+  background: linear-gradient(135deg, #E0A96D 0%, #D48166 50%, #764248 100%);
+}
+
+.card-thumb-aanvi {
+  background: linear-gradient(135deg, #2E8B57 0%, #3CB371 50%, #20B2AA 100%);
+}
+
+.card-thumb-z18 {
+  background: linear-gradient(135deg, #1E1B4B 0%, #4338CA 50%, #6366F1 100%);
 }
 
 .thumb-restart-inner {
