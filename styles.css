@@ -38,6 +38,19 @@ html {
 body {
   font-family: var(--font);
   background-color: var(--bg);
+  /*
+    Aurora/mesh gradient matching the reference:
+    coral-pink upper-right → soft lavender mid-right → baby-blue far-right,
+    all fading to the off-white base on the left.
+    background-attachment: fixed keeps it behind the sticky header.
+  */
+  background-image:
+    radial-gradient(ellipse 70% 55% at 100%  0%,  rgba(255, 188, 188, 0.38) 0%, transparent 60%),
+    radial-gradient(ellipse 55% 55% at 88%  15%,  rgba(198, 170, 255, 0.32) 0%, transparent 65%),
+    radial-gradient(ellipse 45% 50% at 78%  45%,  rgba(186, 210, 255, 0.28) 0%, transparent 60%),
+    radial-gradient(ellipse 40% 35% at 95%  55%,  rgba(200, 225, 255, 0.20) 0%, transparent 55%);
+  background-attachment: fixed;
+  background-repeat: no-repeat;
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
@@ -91,9 +104,16 @@ ul {
   top: 0;
   z-index: 100;
   padding-block: 18px;
-  background-color: rgba(250, 250, 250, 0.85);
+  /* Transparent so the hero mesh gradient bleeds through the header */
+  background-color: transparent;
+}
+
+/* When scrolled, add a subtle frosted glass so content behind is legible */
+.site-header.scrolled {
+  background-color: rgba(252, 251, 255, 0.82);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 1px 0 rgba(0,0,0,0.06);
 }
 
 .header-inner {
@@ -172,80 +192,29 @@ ul {
 }
 
 /* ── 5. HERO ─────────────────────────────────────────── */
+/*
+  Reference gradient analysis:
+  - Left side  → almost pure white (#FAFAFA)
+  - Upper-right → soft coral/salmon-pink
+  - Mid-right   → soft lavender/lilac
+  - Far-right   → baby blue
+  - All at low opacity, smoothly blended — aurora / mesh look
+
+  Implementation: layered radial-gradient on .hero itself,
+  plus a matching top-zone gradient on the body so the sticky
+  header (which is transparent) inherits the same colours.
+*/
+
 .hero {
   position: relative;
-  padding-top: clamp(40px, 6vw, 80px);
-  padding-bottom: clamp(40px, 6vw, 80px);
-  overflow: hidden;
-}
-
-/* Two-column layout */
-.hero-inner {
-  position: relative;
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  gap: clamp(40px, 6vw, 80px);
+  padding-top: clamp(36px, 5vw, 68px);
+  padding-bottom: clamp(52px, 7vw, 96px);
 }
 
 .hero-content {
-  flex: 1;
-  min-width: 0;
-}
-
-/* Right column: portrait photo */
-.hero-photo {
-  flex-shrink: 0;
-  width: clamp(260px, 32vw, 420px);
-}
-
-.hero-photo img {
-  width: 100%;
-  height: auto;
-  border-radius: 28px;
-  object-fit: cover;
-  object-position: top center;
-  display: block;
-  box-shadow:
-    0 20px 60px rgba(0, 0, 0, 0.12),
-    0 4px 16px rgba(0, 0, 0, 0.08);
-}
-
-/* Gradient Blobs */
-.hero-blob {
-  position: absolute;
-  border-radius: 50%;
-  filter: blur(80px);
-  opacity: 0.45;
-  pointer-events: none;
+  position: relative;
   z-index: 1;
-}
-
-.blob-orange {
-  width: 480px;
-  height: 480px;
-  background: radial-gradient(circle, #FF8A3D 0%, #FF5E7E 60%, transparent 100%);
-  top: -60px;
-  right: -40px;
-  opacity: 0.28;
-}
-
-.blob-purple {
-  width: 380px;
-  height: 380px;
-  background: radial-gradient(circle, #A855F7 0%, #6366F1 70%, transparent 100%);
-  top: 80px;
-  right: 120px;
-  opacity: 0.22;
-}
-
-.blob-blue {
-  width: 340px;
-  height: 340px;
-  background: radial-gradient(circle, #60A5FA 0%, #3B82F6 60%, transparent 100%);
-  bottom: -40px;
-  right: 60px;
-  opacity: 0.20;
+  max-width: 600px;
 }
 
 /* Hero Typography */
@@ -592,16 +561,6 @@ ul {
 
 /* Tablet */
 @media (max-width: 900px) {
-  .hero-inner {
-    flex-direction: column-reverse;
-    gap: 36px;
-  }
-
-  .hero-photo {
-    width: clamp(200px, 55vw, 320px);
-    align-self: center;
-  }
-
   .projects-grid {
     grid-template-columns: 1fr;
     max-width: 600px;
@@ -616,45 +575,12 @@ ul {
   .footer-identity {
     grid-column: 1 / -1;
   }
-
-  .blob-orange {
-    width: 300px;
-    height: 300px;
-    opacity: 0.20;
-  }
-
-  .blob-purple {
-    width: 240px;
-    height: 240px;
-    opacity: 0.16;
-  }
-
-  .blob-blue {
-    width: 220px;
-    height: 220px;
-    opacity: 0.14;
-  }
 }
 
 /* Mobile */
 @media (max-width: 600px) {
   :root {
     --px: 20px;
-  }
-
-  .hero-inner {
-    flex-direction: column-reverse;
-    gap: 28px;
-    text-align: center;
-  }
-
-  .hero-photo {
-    width: clamp(180px, 60vw, 260px);
-    align-self: center;
-  }
-
-  .hero-actions {
-    justify-content: center;
   }
 
   .pill-nav ul {
@@ -687,12 +613,6 @@ ul {
 
   .footer-identity {
     grid-column: 1;
-  }
-
-  .blob-orange,
-  .blob-purple,
-  .blob-blue {
-    display: none;
   }
 
   .card-caption {

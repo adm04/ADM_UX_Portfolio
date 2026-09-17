@@ -97,20 +97,17 @@
     });
   });
 
-  /* ─── 4. HEADER shadow on scroll ────────────────────── */
+  /* ─── 4. HEADER: transparent → frosted glass on scroll ── */
   const header = document.querySelector('.site-header');
-  let lastScroll = 0;
 
   window.addEventListener(
     'scroll',
     () => {
-      const currentScroll = window.scrollY;
-      if (currentScroll > 8) {
-        header.style.boxShadow = '0 1px 0 rgba(0,0,0,0.06)';
+      if (window.scrollY > 12) {
+        header.classList.add('scrolled');
       } else {
-        header.style.boxShadow = 'none';
+        header.classList.remove('scrolled');
       }
-      lastScroll = currentScroll;
     },
     { passive: true }
   );
