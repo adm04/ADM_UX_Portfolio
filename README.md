@@ -19,6 +19,9 @@ A high-fidelity personal portfolio crafted by **Arkadeb Mondal**, showcasing pro
     - *Elaara* (Luxury brand identity & digital experience).
     - *Aanvi* (Curated lifestyle brand & e-commerce website).
     - *Z18* (Creative studio brand system & web platform).
+  - **Vibe Coded Projects (AI & Creative Engineering)**:
+    - *Aurora AI* (Generative UI & code flow canvas converting natural language into production-ready React components).
+    - *Audio Genesis AI* (Browser-based generative ambient synthesizer & soundscape studio).
 - **Interactive Experiments (Pinterest Masonry Grid)**: Fluid, multi-column Pinterest-style masonry layout featuring visual research, 3D typography, spatial concepts, and interactive glassmorphic UI widgets.
 - **Centrally Aligned Typography & Clean Spacing**: Balanced typographic hierarchy built with the *Manrope* font family, polished micro-interactions, and accessible semantic markup.
 
@@ -29,7 +32,7 @@ A high-fidelity personal portfolio crafted by **Arkadeb Mondal**, showcasing pro
 ```text
 ├── index.html               # Main portfolio landing page
 ├── styles.css               # Core styling & design token system
-├── main.js                  # Dynamic aurora physics & scroll interactions
+├── main.js                  # Dynamic aurora physics, scroll spy & nav interactions
 ├── career-restart.html      # In-depth UI/UX case study
 ├── case-study.css           # Case study specific layout & typography
 ├── case-study.js            # Table of contents & reading progress tracker
@@ -39,6 +42,8 @@ A high-fidelity personal portfolio crafted by **Arkadeb Mondal**, showcasing pro
 ├── elaara_branding.jpg      # Elaara branding showcase
 ├── aanvi_website.jpg        # Aanvi lifestyle brand showcase
 ├── z18_branding.jpg         # Z18 studio brand showcase
+├── vibecoded_aurora.jpg     # Aurora AI Vibe Coded project showcase
+├── vibecoded_audio.jpg      # Audio Genesis Vibe Coded project showcase
 ├── experiment-1.jpg         # Pinterest masonry experiment 1
 ├── experiment-2.jpg         # Pinterest masonry experiment 2
 └── experiment-3.jpg         # Pinterest masonry experiment 3

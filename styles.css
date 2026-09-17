@@ -568,11 +568,156 @@ ul {
   padding-top: 1px;
 }
 
-/* ── 7. EXPERIMENTS & ABOUT SECTIONS ─────────────────── */
+/* ── 7. VIBE CODED, EXPERIMENTS & ABOUT SECTIONS ─────── */
+.vibecoded-section,
 .experiments-section,
 .about-section {
   padding-block: clamp(48px, 6vw, 80px);
   border-top: 1px solid var(--border);
+}
+
+.vibecoded-header {
+  margin-bottom: clamp(28px, 4vw, 40px);
+}
+
+.vibecoded-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 24px;
+}
+
+@media (max-width: 768px) {
+  .vibecoded-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.vibecoded-card {
+  border-radius: var(--radius-card);
+  overflow: hidden;
+  background: var(--surface);
+  box-shadow: var(--shadow-card);
+  transition: transform var(--transition), box-shadow var(--transition);
+  display: flex;
+  flex-direction: column;
+}
+
+.vibecoded-card:hover {
+  transform: translateY(-4px) scale(1.005);
+  box-shadow: var(--shadow-card-hover);
+}
+
+.vibecoded-media {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #0B0F19;
+}
+
+.vibecoded-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.vibecoded-card:hover .vibecoded-media img {
+  transform: scale(1.03);
+}
+
+.vibecoded-badge-wrap {
+  position: absolute;
+  top: 14px;
+  right: 14px;
+}
+
+.vibecoded-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 100px;
+  background: rgba(15, 23, 42, 0.75);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  color: #F8FAFC;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.badge-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #10B981;
+  box-shadow: 0 0 8px #10B981;
+}
+
+.vibecoded-body {
+  padding: 20px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  flex-grow: 1;
+}
+
+.vibecoded-meta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 8px;
+}
+
+.vibecoded-tag {
+  font-family: var(--font);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #64748B;
+}
+
+.vibecoded-year {
+  font-size: 12px;
+  color: #94A3B8;
+  font-weight: 500;
+}
+
+.vibecoded-title {
+  font-family: var(--font);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--text-primary);
+  line-height: 1.35;
+  margin-bottom: 8px;
+}
+
+.vibecoded-desc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.55;
+  margin-bottom: 16px;
+  flex-grow: 1;
+}
+
+.vibecoded-tech-stack {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+
+.tech-pill {
+  padding: 3px 10px;
+  border-radius: 100px;
+  background: #F1F5F9;
+  border: 1px solid #E2E8F0;
+  color: #475569;
+  font-size: 11px;
+  font-weight: 600;
 }
 
 .experiments-header {

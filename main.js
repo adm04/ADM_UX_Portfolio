@@ -40,9 +40,10 @@
   }
 
   /* ─── 2. ACTIVE NAV STATE — based on scroll position ── */
-  const sections = ['projects', 'experiments', 'about'];
+  const sections = ['projects', 'vibe-coded', 'experiments', 'about'];
   const navLinks = {
     projects: document.getElementById('nav-projects'),
+    'vibe-coded': document.getElementById('nav-vibe-coded'),
     experiments: document.getElementById('nav-experiments'),
     about: document.getElementById('nav-about'),
   };
