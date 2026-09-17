@@ -1,0 +1,764 @@
+/* ═══════════════════════════════════════════════════════
+   CAREER RESTART — case-study.css
+   Companion to styles.css (Manrope font, CSS vars inherited)
+   ═══════════════════════════════════════════════════════ */
+
+/* ── RESET for case study page ──────────────────────── */
+.cs-body {
+  background-color: #FAFAFA;
+  background-image: none; /* override portfolio gradient */
+  color: #111111;
+}
+
+/* ── CONTAINERS ─────────────────────────────────────── */
+.cs-container {
+  max-width: 1160px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 5vw, 80px);
+}
+
+.cs-container--wide {
+  max-width: 1280px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 60px);
+}
+
+/* ── TOP NAV ─────────────────────────────────────────── */
+.cs-topnav {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(250, 250, 250, 0.90);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid #EFEFEF;
+  padding-block: 14px;
+}
+
+.cs-topnav-inner {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.cs-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+  text-decoration: none;
+  transition: color 200ms ease;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.cs-back-link:hover { color: #111111; }
+
+.cs-tabs {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  margin-left: auto;
+  flex-wrap: wrap;
+}
+
+.cs-tab {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+  text-decoration: none;
+  padding: 7px 16px;
+  border-radius: 100px;
+  transition: color 200ms ease, background-color 200ms ease;
+  white-space: nowrap;
+}
+
+.cs-tab:hover {
+  color: #111111;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.cs-tab.active {
+  color: #111111;
+  background-color: #EBEBEB;
+  font-weight: 600;
+}
+
+/* ── TYPOGRAPHY SCALE ────────────────────────────────── */
+.cs-eyebrow {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #6B7280;
+  margin-bottom: 14px;
+}
+
+.cs-label {
+  display: inline-block;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 600;
+  color: #6B7280;
+  letter-spacing: 0.03em;
+  margin-bottom: 16px;
+}
+
+.cs-h1 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(36px, 5.5vw, 56px);
+  font-weight: 800;
+  line-height: 1.1;
+  letter-spacing: -0.03em;
+  color: #111111;
+  margin-bottom: 40px;
+  max-width: 700px;
+}
+
+.cs-h2 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(26px, 3.5vw, 36px);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.025em;
+  color: #111111;
+  margin-bottom: 18px;
+  max-width: 680px;
+}
+
+.cs-h3 {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 2.5vw, 26px);
+  font-weight: 700;
+  line-height: 1.25;
+  letter-spacing: -0.02em;
+  color: #111111;
+  margin-bottom: 14px;
+}
+
+.cs-body {
+  font-family: 'Manrope', sans-serif;
+  font-size: 17px;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #4B5563;
+  max-width: 680px;
+  margin-bottom: 0;
+}
+
+.cs-body--mt  { margin-top: 40px; }
+.cs-body--closing {
+  font-size: 18px;
+  font-weight: 500;
+  color: #374151;
+  font-style: italic;
+}
+
+/* ── SECTIONS ────────────────────────────────────────── */
+.cs-section {
+  padding-block: clamp(60px, 8vw, 104px);
+  border-top: 1px solid #F0F0F0;
+}
+
+.cs-section--last {
+  padding-bottom: clamp(80px, 10vw, 140px);
+}
+
+.cs-hero {
+  padding-top: clamp(48px, 6vw, 80px);
+  padding-bottom: clamp(48px, 6vw, 80px);
+}
+
+.cs-hero-content {
+  margin-bottom: 36px;
+}
+
+/* ── IMAGE PLACEHOLDERS ──────────────────────────────── */
+.cs-placeholder {
+  background-color: #F0F0F0;
+  border: 1.5px solid #E2E2E2;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  overflow: hidden;
+}
+
+.cs-placeholder-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  color: #9CA3AF;
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  user-select: none;
+}
+
+.cs-ph-icon {
+  width: 32px;
+  height: 32px;
+  color: #C4C4C4;
+}
+
+.cs-ph-icon--sm {
+  width: 24px;
+  height: 24px;
+}
+
+/* Hero placeholder — 16:9ish */
+.cs-placeholder--hero {
+  aspect-ratio: 16 / 9;
+  max-height: 560px;
+  background-color: #EBEBEB;
+}
+
+/* Dashboard / inline image */
+.cs-placeholder--dashboard {
+  aspect-ratio: 16 / 9;
+  margin-block: 40px;
+  background-color: #E8E8E8;
+}
+
+/* Full-width wide placeholders */
+.cs-placeholder--wide {
+  aspect-ratio: 21 / 8;
+  min-height: 220px;
+  margin-block: 40px;
+  background-color: #EBEBEB;
+}
+
+/* Wireframe small */
+.cs-placeholder--wire {
+  aspect-ratio: 9 / 14;
+  background-color: #F5F5F5;
+  border-radius: 16px;
+}
+
+/* Hi-fi tall */
+.cs-placeholder--hifi {
+  aspect-ratio: 16 / 8;
+  min-height: 360px;
+  margin-block: 40px;
+  background-color: #E4E4E4;
+  border-radius: 24px;
+}
+
+/* Before & after */
+.cs-placeholder--ba {
+  aspect-ratio: 3 / 4;
+  background-color: #F0F0F0;
+  border-radius: 16px;
+}
+
+/* ── META ROW ────────────────────────────────────────── */
+.cs-meta-row {
+  padding-block: clamp(28px, 4vw, 48px);
+  border-top: 1px solid #F0F0F0;
+  border-bottom: 1px solid #F0F0F0;
+}
+
+.cs-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 32px;
+}
+
+.cs-meta-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.cs-meta-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: #9CA3AF;
+}
+
+.cs-meta-value {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 600;
+  color: #111111;
+}
+
+.cs-meta-sub {
+  font-size: 13px;
+  font-weight: 400;
+  color: #6B7280;
+}
+
+/* ── IMPACT STAT CARDS ───────────────────────────────── */
+.cs-stats-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 48px;
+}
+
+.cs-stat-card {
+  background: #FFFFFF;
+  border: 1.5px solid #EFEFEF;
+  border-radius: 18px;
+  padding: 24px 22px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.cs-stat-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.cs-stat-icon {
+  width: 28px;
+  height: 28px;
+  color: #22C55E;
+  margin-bottom: 4px;
+}
+
+.cs-stat-icon svg { width: 100%; height: 100%; }
+
+.cs-stat-num {
+  font-family: 'Manrope', sans-serif;
+  font-size: 32px;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.cs-stat-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 15px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.cs-stat-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #9CA3AF;
+  line-height: 1.5;
+}
+
+/* ── THREE-COLUMN GRID ───────────────────────────────── */
+.cs-three-col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 40px;
+}
+
+/* Pain point cards */
+.cs-pain-card {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 24px 20px;
+  background: #FFFFFF;
+  border: 1.5px solid #EFEFEF;
+  border-radius: 18px;
+}
+
+.cs-pain-num {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  color: #D1D5DB;
+  letter-spacing: 0.04em;
+}
+
+.cs-pain-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.cs-pain-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── RESEARCH STATS ──────────────────────────────────── */
+.cs-research-stats {
+  margin-top: 0;
+  padding-top: 8px;
+}
+
+.cs-rstat {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 6px;
+  padding: 24px 20px;
+  background: #FFFFFF;
+  border: 1.5px solid #EFEFEF;
+  border-radius: 18px;
+}
+
+.cs-rstat-icon {
+  width: 26px;
+  height: 26px;
+  color: #6366F1;
+  margin-bottom: 4px;
+}
+
+.cs-rstat-icon svg { width: 100%; height: 100%; }
+
+.cs-rstat-num {
+  font-family: 'Manrope', sans-serif;
+  font-size: 28px;
+  font-weight: 800;
+  color: #111111;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+
+.cs-rstat-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.cs-rstat-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #9CA3AF;
+  line-height: 1.5;
+}
+
+/* ── WHAT WE LEARNED ─────────────────────────────────── */
+.cs-learned {
+  margin-top: 56px;
+}
+
+/* ── PULL QUOTE ──────────────────────────────────────── */
+.cs-pullquote {
+  margin-top: 32px;
+  background: #F8F8FF;
+  border: 1.5px solid #E8E8F8;
+  border-radius: 20px;
+  padding: 32px 36px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  max-width: 680px;
+}
+
+.cs-pullquote-mark {
+  width: 32px;
+  height: 32px;
+  color: #A5B4FC;
+}
+
+.cs-pullquote-mark svg { width: 100%; height: 100%; }
+
+.cs-pullquote-text {
+  font-family: 'Manrope', sans-serif;
+  font-size: 19px;
+  font-weight: 500;
+  line-height: 1.6;
+  color: #1F2937;
+  font-style: italic;
+  margin: 0;
+}
+
+.cs-pullquote-cite {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: #9CA3AF;
+  font-style: normal;
+}
+
+/* ── KEY INSIGHTS GRID ───────────────────────────────── */
+.cs-insights-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+  margin-top: 40px;
+  max-width: 860px;
+}
+
+.cs-insight-card {
+  background: #FFFFFF;
+  border: 1.5px solid #EFEFEF;
+  border-radius: 18px;
+  padding: 24px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.cs-insight-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.cs-insight-icon {
+  width: 26px;
+  height: 26px;
+  color: #6366F1;
+  margin-bottom: 4px;
+}
+
+.cs-insight-icon svg { width: 100%; height: 100%; }
+
+.cs-insight-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.cs-insight-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── USER JOURNEY CARDS ──────────────────────────────── */
+.cs-journey-card {
+  background: #FFFFFF;
+  border: 1.5px solid #EFEFEF;
+  border-radius: 18px;
+  padding: 28px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  transition: transform 200ms ease, box-shadow 200ms ease;
+}
+
+.cs-journey-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 16px rgba(0,0,0,0.07);
+}
+
+.cs-journey-icon {
+  width: 28px;
+  height: 28px;
+  color: #22C55E;
+  margin-bottom: 6px;
+}
+
+.cs-journey-icon svg { width: 100%; height: 100%; }
+
+.cs-journey-stage {
+  font-family: 'Manrope', sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  color: #111111;
+  margin: 0;
+}
+
+.cs-journey-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 400;
+  color: #6B7280;
+  line-height: 1.55;
+  margin: 0;
+}
+
+/* ── WIREFRAME ROWS ──────────────────────────────────── */
+.cs-wireframe-row {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  margin-top: 36px;
+}
+
+.cs-wireframe-row--mt { margin-top: 20px; }
+
+/* Caption row below wireframes */
+.cs-caption-row {
+  margin-top: 14px;
+  gap: 20px;
+}
+
+.cs-caption-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 4px;
+}
+
+.cs-caption-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #374151;
+}
+
+.cs-caption-desc {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 400;
+  color: #9CA3AF;
+  line-height: 1.5;
+}
+
+/* ── TESTING BLOCK ───────────────────────────────────── */
+.cs-testing {
+  margin-top: 56px;
+  max-width: 680px;
+}
+
+.cs-testing .cs-body { margin-top: 12px; }
+
+/* ── BEFORE & AFTER ──────────────────────────────────── */
+.cs-ba-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+  margin-top: 36px;
+}
+
+.cs-ba-item {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.cs-ba-label {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: #9CA3AF;
+}
+
+/* ── FOOTER ──────────────────────────────────────────── */
+.cs-footer {
+  border-top: 1px solid #EFEFEF;
+  padding-block: 32px;
+  background: #FAFAFA;
+}
+
+.cs-footer-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.cs-footer-back {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 500;
+  color: #6B7280;
+  text-decoration: none;
+  transition: color 200ms ease;
+}
+
+.cs-footer-back:hover { color: #111111; }
+
+.cs-footer-credit {
+  font-family: 'Manrope', sans-serif;
+  font-size: 13px;
+  color: #9CA3AF;
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────── */
+@media (max-width: 860px) {
+  .cs-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 24px;
+  }
+
+  .cs-stats-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cs-insights-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .cs-ba-row {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 700px) {
+  .cs-tabs {
+    display: none; /* collapse on mobile — keep back link */
+  }
+
+  .cs-three-col,
+  .cs-wireframe-row,
+  .cs-caption-row {
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  .cs-meta-grid {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .cs-placeholder--wire {
+    aspect-ratio: 16 / 9;
+  }
+
+  .cs-h1 { font-size: clamp(30px, 8vw, 42px); }
+  .cs-h2 { font-size: clamp(22px, 5.5vw, 30px); }
+
+  .cs-pullquote {
+    padding: 24px 22px;
+  }
+
+  .cs-pullquote-text { font-size: 16px; }
+}
+
+@media (max-width: 480px) {
+  .cs-meta-grid {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .cs-footer-inner {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 8px;
+  }
+}
+
+/* ── REDUCED MOTION ──────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  .cs-stat-card,
+  .cs-insight-card,
+  .cs-journey-card {
+    transition: none;
+  }
+}
