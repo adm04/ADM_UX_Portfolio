@@ -174,15 +174,41 @@ ul {
 /* ── 5. HERO ─────────────────────────────────────────── */
 .hero {
   position: relative;
-  padding-top: clamp(56px, 8vw, 100px);
-  padding-bottom: clamp(48px, 7vw, 88px);
+  padding-top: clamp(40px, 6vw, 80px);
+  padding-bottom: clamp(40px, 6vw, 80px);
   overflow: hidden;
 }
 
-.hero-content {
+/* Two-column layout */
+.hero-inner {
   position: relative;
   z-index: 2;
-  max-width: 640px;
+  display: flex;
+  align-items: center;
+  gap: clamp(40px, 6vw, 80px);
+}
+
+.hero-content {
+  flex: 1;
+  min-width: 0;
+}
+
+/* Right column: portrait photo */
+.hero-photo {
+  flex-shrink: 0;
+  width: clamp(260px, 32vw, 420px);
+}
+
+.hero-photo img {
+  width: 100%;
+  height: auto;
+  border-radius: 28px;
+  object-fit: cover;
+  object-position: top center;
+  display: block;
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.12),
+    0 4px 16px rgba(0, 0, 0, 0.08);
 }
 
 /* Gradient Blobs */
@@ -196,30 +222,30 @@ ul {
 }
 
 .blob-orange {
-  width: 500px;
-  height: 420px;
+  width: 480px;
+  height: 480px;
   background: radial-gradient(circle, #FF8A3D 0%, #FF5E7E 60%, transparent 100%);
-  top: -80px;
-  right: 5%;
-  opacity: 0.30;
+  top: -60px;
+  right: -40px;
+  opacity: 0.28;
 }
 
 .blob-purple {
-  width: 420px;
+  width: 380px;
   height: 380px;
   background: radial-gradient(circle, #A855F7 0%, #6366F1 70%, transparent 100%);
-  top: 40px;
-  right: 20%;
-  opacity: 0.25;
+  top: 80px;
+  right: 120px;
+  opacity: 0.22;
 }
 
 .blob-blue {
-  width: 380px;
+  width: 340px;
   height: 340px;
   background: radial-gradient(circle, #60A5FA 0%, #3B82F6 60%, transparent 100%);
-  top: 100px;
-  right: 0;
-  opacity: 0.22;
+  bottom: -40px;
+  right: 60px;
+  opacity: 0.20;
 }
 
 /* Hero Typography */
@@ -566,6 +592,16 @@ ul {
 
 /* Tablet */
 @media (max-width: 900px) {
+  .hero-inner {
+    flex-direction: column-reverse;
+    gap: 36px;
+  }
+
+  .hero-photo {
+    width: clamp(200px, 55vw, 320px);
+    align-self: center;
+  }
+
   .projects-grid {
     grid-template-columns: 1fr;
     max-width: 600px;
@@ -582,21 +618,21 @@ ul {
   }
 
   .blob-orange {
-    width: 360px;
+    width: 300px;
     height: 300px;
-    opacity: 0.22;
+    opacity: 0.20;
   }
 
   .blob-purple {
-    width: 300px;
-    height: 260px;
-    opacity: 0.18;
+    width: 240px;
+    height: 240px;
+    opacity: 0.16;
   }
 
   .blob-blue {
-    width: 280px;
-    height: 240px;
-    opacity: 0.16;
+    width: 220px;
+    height: 220px;
+    opacity: 0.14;
   }
 }
 
@@ -604,6 +640,21 @@ ul {
 @media (max-width: 600px) {
   :root {
     --px: 20px;
+  }
+
+  .hero-inner {
+    flex-direction: column-reverse;
+    gap: 28px;
+    text-align: center;
+  }
+
+  .hero-photo {
+    width: clamp(180px, 60vw, 260px);
+    align-self: center;
+  }
+
+  .hero-actions {
+    justify-content: center;
   }
 
   .pill-nav ul {
