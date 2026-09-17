@@ -38,24 +38,107 @@ html {
 body {
   font-family: var(--font);
   background-color: var(--bg);
-  /*
-    Aurora/mesh gradient matching the reference:
-    coral-pink upper-right → soft lavender mid-right → baby-blue far-right,
-    all fading to the off-white base on the left.
-    background-attachment: fixed keeps it behind the sticky header.
-  */
-  background-image:
-    radial-gradient(ellipse 70% 55% at 100%  0%,  rgba(255, 188, 188, 0.38) 0%, transparent 60%),
-    radial-gradient(ellipse 55% 55% at 88%  15%,  rgba(198, 170, 255, 0.32) 0%, transparent 65%),
-    radial-gradient(ellipse 45% 50% at 78%  45%,  rgba(186, 210, 255, 0.28) 0%, transparent 60%),
-    radial-gradient(ellipse 40% 35% at 95%  55%,  rgba(200, 225, 255, 0.20) 0%, transparent 55%);
-  background-attachment: fixed;
-  background-repeat: no-repeat;
   color: var(--text-primary);
   line-height: 1.6;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
+}
+
+/* ── 2. DYNAMIC AURORA BACKGROUND ─────────────────────── */
+.aurora-bg {
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  z-index: -1;
+  overflow: hidden;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(85px);
+  -webkit-filter: blur(85px);
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Blob 1 — Soft Coral / Peach (top right) */
+.blob-1 {
+  width: 58vw;
+  height: 58vw;
+  max-width: 780px;
+  max-height: 780px;
+  background: radial-gradient(circle, rgba(255, 175, 175, 0.45) 0%, rgba(255, 195, 170, 0.22) 50%, transparent 75%);
+  top: -16%;
+  right: -8%;
+  animation: float-aurora-1 20s ease-in-out infinite alternate;
+}
+
+/* Blob 2 — Soft Lavender / Lilac (mid right) */
+.blob-2 {
+  width: 52vw;
+  height: 52vw;
+  max-width: 700px;
+  max-height: 700px;
+  background: radial-gradient(circle, rgba(198, 170, 255, 0.40) 0%, rgba(180, 160, 255, 0.20) 50%, transparent 75%);
+  top: 4%;
+  right: 6%;
+  animation: float-aurora-2 25s ease-in-out infinite alternate;
+}
+
+/* Blob 3 — Sky Blue / Cyan (far right / center-right) */
+.blob-3 {
+  width: 48vw;
+  height: 48vw;
+  max-width: 620px;
+  max-height: 620px;
+  background: radial-gradient(circle, rgba(186, 215, 255, 0.38) 0%, rgba(160, 210, 255, 0.18) 50%, transparent 75%);
+  top: 22%;
+  right: -4%;
+  animation: float-aurora-3 18s ease-in-out infinite alternate;
+}
+
+/* Blob 4 — Warm Tint (top center-right) */
+.blob-4 {
+  width: 42vw;
+  height: 42vw;
+  max-width: 540px;
+  max-height: 540px;
+  background: radial-gradient(circle, rgba(255, 210, 235, 0.32) 0%, transparent 70%);
+  top: -8%;
+  right: 22%;
+  animation: float-aurora-4 28s ease-in-out infinite alternate;
+}
+
+@keyframes float-aurora-1 {
+  0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  50%  { transform: translate3d(-70px, 45px, 0) scale(1.10) rotate(12deg); }
+  100% { transform: translate3d(35px, -25px, 0) scale(0.94) rotate(-8deg); }
+}
+
+@keyframes float-aurora-2 {
+  0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  50%  { transform: translate3d(55px, -50px, 0) scale(1.14) rotate(-16deg); }
+  100% { transform: translate3d(-45px, 40px, 0) scale(0.92) rotate(12deg); }
+}
+
+@keyframes float-aurora-3 {
+  0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  50%  { transform: translate3d(-55px, -35px, 0) scale(1.08) rotate(20deg); }
+  100% { transform: translate3d(45px, 55px, 0) scale(1.16) rotate(-14deg); }
+}
+
+@keyframes float-aurora-4 {
+  0%   { transform: translate3d(0, 0, 0) scale(1); }
+  50%  { transform: translate3d(-40px, 55px, 0) scale(1.12); }
+  100% { transform: translate3d(25px, -35px, 0) scale(0.94); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .aurora-blob {
+    animation: none;
+  }
 }
 
 img {
