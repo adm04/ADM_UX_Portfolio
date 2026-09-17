@@ -126,13 +126,14 @@ ul {
 .header-avatar {
   display: flex;
   flex-shrink: 0;
-  border-radius: 50%;
+  border-radius: 18px;
   overflow: hidden;
   width: 52px;
   height: 52px;
   outline: 2.5px solid transparent;
   outline-offset: 2px;
-  transition: outline-color var(--transition);
+  background-color: #111111;
+  transition: outline-color var(--transition), transform var(--transition);
 }
 
 .header-avatar:focus-visible {
@@ -143,7 +144,7 @@ ul {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  border-radius: 50%;
+  border-radius: 18px;
 }
 
 /* Pill Nav */
@@ -276,14 +277,14 @@ ul {
 }
 
 .btn-secondary {
-  background-color: transparent;
+  background-color: rgba(0, 0, 0, 0.05);
   color: #111111;
-  border: 2px solid #D1D5DB;
+  border: 1px solid rgba(0, 0, 0, 0.04);
 }
 
 .btn-secondary:hover {
-  border-color: #111111;
-  background-color: rgba(17,17,17,0.04);
+  background-color: rgba(0, 0, 0, 0.09);
+  border-color: rgba(0, 0, 0, 0.08);
   transform: translateY(-1px);
 }
 
