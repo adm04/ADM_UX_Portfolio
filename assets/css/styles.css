@@ -62,6 +62,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 84px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -203,22 +204,31 @@ code {
   padding-inline: var(--px);
 }
 
-/* Reveal Animations */
-@keyframes revealUp {
-  from {
-    opacity: 0;
-    transform: translateY(24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
+/* Card Reveal & Bi-directional Fade In / Fade Out */
 .reveal-up {
   opacity: 0;
-  animation: revealUp 0.65s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  animation-delay: var(--delay, 0s);
+  transform: translateY(28px) scale(0.985);
+  filter: blur(4px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1);
+  transition-delay: var(--delay, 0s);
+  will-change: opacity, transform, filter;
+}
+
+.reveal-up.is-inview {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .reveal-up {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
 }
 
 /* ── 4. HEADER & TACTICAL SYSTEM CONSOLE ─────────────── */
@@ -393,7 +403,8 @@ code {
 .hero-content {
   position: relative;
   z-index: 1;
-  max-width: 780px;
+  width: 100%;
+  max-width: 100%;
 }
 
 .hero-prompt-row {
@@ -1154,32 +1165,36 @@ code {
 /* ── 11. HERO BANNER & INSTRUMENT BADGES ─────────────── */
 .hero-banner-wrap {
   width: 100%;
-  margin-bottom: 20px;
-  border-radius: 12px;
+  max-width: 100%;
+  margin-bottom: 24px;
+  border-radius: 14px;
   overflow: hidden;
-  border: 1px solid var(--border);
+  border: 1.5px solid rgba(255, 255, 255, 0.12);
   background: #0A0A0A;
-  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.8);
-  transition: border-color var(--transition), box-shadow var(--transition);
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.88), 0 0 36px rgba(215, 25, 33, 0.15);
+  transition: border-color var(--transition), box-shadow var(--transition), transform var(--transition);
 }
 
 .hero-banner-wrap:hover {
   border-color: var(--accent-red);
-  box-shadow: 0 0 28px rgba(215, 25, 33, 0.28);
+  box-shadow: 0 14px 52px rgba(0, 0, 0, 0.95), 0 0 48px rgba(215, 25, 33, 0.35);
+  transform: translateY(-2px);
 }
 
 .hero-banner-img {
   width: 100%;
   height: auto;
   display: block;
+  object-fit: cover;
+  filter: contrast(1.02);
 }
 
 .hero-badges-row {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  gap: 8px;
-  margin-bottom: 18px;
+  gap: 10px;
+  margin-bottom: 20px;
 }
 
 .badge-link {
@@ -1198,7 +1213,7 @@ code {
 
 .hero-typewriter-wrap {
   width: 100%;
-  margin-bottom: 22px;
+  margin-bottom: 26px;
   display: flex;
   justify-content: flex-start;
   overflow-x: auto;
@@ -1206,7 +1221,7 @@ code {
 
 .hero-typewriter-img {
   max-width: 100%;
-  height: auto;
+  height: 38px;
 }
 
 /* ── 12. EXPANDED ABOUT PROFILE MATRIX ───────────────── */

@@ -26,16 +26,51 @@
     if (el) observer.observe(el);
   });
 
-  /* ── Smooth scroll for anchor tabs ────────────────── */
+  /* ── Smooth scroll for anchor tabs with header offset ── */
   document.querySelectorAll('.cs-tab[href^="#"]').forEach(tab => {
     tab.addEventListener('click', e => {
-      const target = document.querySelector(tab.getAttribute('href'));
+      const href = tab.getAttribute('href');
+      const target = document.querySelector(href);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        const headerOffset = 64;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
       }
     });
   });
+
+  /* ── Bi-directional Card Fade In / Fade Out ────────── */
+  const csCards = document.querySelectorAll(
+    '.cs-stat-card, .cs-pain-card, .cs-rstat, .cs-insight-card, .cs-journey-card, .cs-placeholder, .cs-pullquote, .cs-ba-item, .cs-caption-item'
+  );
+
+  if ('IntersectionObserver' in window && csCards.length > 0) {
+    const cardObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('is-inview');
+          } else {
+            entry.target.classList.remove('is-inview');
+          }
+        });
+      },
+      {
+        threshold: 0.1,
+        rootMargin: '0px 0px -40px 0px',
+      }
+    );
+
+    csCards.forEach((card) => cardObserver.observe(card));
+  } else {
+    csCards.forEach((card) => card.classList.add('is-inview'));
+  }
 
   /* ── Topnav: frosted glass on scroll ───────────────── */
   const header = document.querySelector('.cs-topnav');

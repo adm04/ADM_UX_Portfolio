@@ -9,6 +9,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Manrope:wght@400;500;600;700;800&display=swap');
 
 /* ── 1. RESET & CASE STUDY ROOT TOKENS ────────────────── */
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 80px;
+  -webkit-text-size-adjust: 100%;
+}
+
 .cs-body {
   font-family: 'Space Mono', monospace;
   background-color: #0A0A0A;
@@ -21,6 +27,58 @@
   overflow-x: hidden;
   margin: 0;
   padding: 0;
+}
+
+/* Card Reveal & Bi-directional Fade In / Fade Out */
+.cs-stat-card,
+.cs-pain-card,
+.cs-rstat,
+.cs-insight-card,
+.cs-journey-card,
+.cs-placeholder,
+.cs-pullquote,
+.cs-ba-item,
+.cs-caption-item {
+  opacity: 0;
+  transform: translateY(28px) scale(0.985);
+  filter: blur(4px);
+  transition: opacity 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              filter 0.65s cubic-bezier(0.16, 1, 0.3, 1),
+              border-color 200ms ease,
+              box-shadow 200ms ease;
+  will-change: opacity, transform, filter;
+}
+
+.cs-stat-card.is-inview,
+.cs-pain-card.is-inview,
+.cs-rstat.is-inview,
+.cs-insight-card.is-inview,
+.cs-journey-card.is-inview,
+.cs-placeholder.is-inview,
+.cs-pullquote.is-inview,
+.cs-ba-item.is-inview,
+.cs-caption-item.is-inview {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  filter: blur(0);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cs-stat-card,
+  .cs-pain-card,
+  .cs-rstat,
+  .cs-insight-card,
+  .cs-journey-card,
+  .cs-placeholder,
+  .cs-pullquote,
+  .cs-ba-item,
+  .cs-caption-item {
+    opacity: 1 !important;
+    transform: none !important;
+    filter: none !important;
+    transition: none !important;
+  }
 }
 
 /* ── 2. CONTAINERS ─────────────────────────────────────── */

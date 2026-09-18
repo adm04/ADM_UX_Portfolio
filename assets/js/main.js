@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  /* ─── 1. INTERSECTION OBSERVER — Scroll Reveal ──────── */
+  /* ─── 1. INTERSECTION OBSERVER — Card Fade In & Fade Out ── */
   const revealEls = document.querySelectorAll('.reveal-up');
 
   if ('IntersectionObserver' in window) {
@@ -14,28 +14,27 @@
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
-            // Trigger the CSS animation by ensuring opacity is reset if needed
-            entry.target.style.animationPlayState = 'running';
-            observer.unobserve(entry.target);
+            // Smoothly fade in when entering viewport
+            entry.target.classList.add('is-inview');
+          } else {
+            // Smoothly fade out when leaving viewport (bi-directional)
+            entry.target.classList.remove('is-inview');
           }
         });
       },
       {
-        threshold: 0.12,
+        threshold: 0.1,
         rootMargin: '0px 0px -40px 0px',
       }
     );
 
     revealEls.forEach((el) => {
-      // Pause animation until element enters viewport
-      el.style.animationPlayState = 'paused';
       observer.observe(el);
     });
   } else {
     // Fallback: just show everything
     revealEls.forEach((el) => {
-      el.style.opacity = '1';
-      el.style.transform = 'none';
+      el.classList.add('is-inview');
     });
   }
 
@@ -69,7 +68,7 @@
       });
     },
     {
-      threshold: 0.35,
+      threshold: 0.25,
     }
   );
 
@@ -78,15 +77,32 @@
     if (el) sectionObserver.observe(el);
   });
 
-  /* ─── 3. SMOOTH SCROLL for anchor links ─────────────── */
+  /* ─── 3. ENHANCED SMOOTH SCROLL with header compensation ── */
   document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
     anchor.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href').slice(1);
+      const href = this.getAttribute('href');
+      if (href === '#' || href === '') {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+      const targetId = href.slice(1);
       const target = document.getElementById(targetId);
       if (target) {
         e.preventDefault();
-        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-        // Return focus to target for accessibility
+        const headerOffset = 76;
+        const elementPosition = target.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+
+        window.scrollTo({
+          top: offsetPosition,
+          behavior: 'smooth'
+        });
+
+        // Set active nav link immediately for immediate visual responsiveness
+        setActiveNav(targetId);
+
+        // Accessibility focus
         target.setAttribute('tabindex', '-1');
         target.focus({ preventScroll: true });
         target.addEventListener(
