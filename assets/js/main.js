@@ -155,4 +155,190 @@
     requestAnimationFrame(animateAurora);
   }
 
+  /* ─── 6. BLINKING SQUARES BACKGROUND (WHITE GLOW) ────── */
+  const heroCanvas = document.getElementById('blinking-squares-canvas');
+  const heroSection = document.querySelector('.hero');
+
+  if (heroCanvas && heroSection) {
+    const ctx = heroCanvas.getContext('2d');
+    const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    const squareSize = 26;
+    const gap = 6;
+    const cellSize = squareSize + gap;
+
+    let cols = 0;
+    let rows = 0;
+    let squares = [];
+    let isVisible = true;
+    let animFrameId = null;
+    let mouse = { x: -9999, y: -9999 };
+
+    function initGrid() {
+      const rect = heroSection.getBoundingClientRect();
+      const dpr = Math.min(window.devicePixelRatio || 1, 2);
+
+      const width = rect.width;
+      const height = rect.height;
+
+      heroCanvas.width = width * dpr;
+      heroCanvas.height = height * dpr;
+      heroCanvas.style.width = `${width}px`;
+      heroCanvas.style.height = `${height}px`;
+
+      if (ctx.resetTransform) {
+        ctx.resetTransform();
+      } else {
+        ctx.setTransform(1, 0, 0, 1, 0, 0);
+      }
+      ctx.scale(dpr, dpr);
+
+      cols = Math.ceil(width / cellSize) + 1;
+      rows = Math.ceil(height / cellSize) + 1;
+
+      squares = [];
+      const now = performance.now();
+      for (let r = 0; r < rows; r++) {
+        for (let c = 0; c < cols; c++) {
+          squares.push({
+            x: c * cellSize,
+            y: r * cellSize,
+            blinking: false,
+            blinkStart: 0,
+            blinkDuration: 1400 + Math.random() * 2000,
+            delay: now + Math.random() * 5000,
+            baseAlpha: 0.035,
+            peakAlpha: 0.55 + Math.random() * 0.4,
+          });
+        }
+      }
+    }
+
+    function render(timestamp) {
+      if (!isVisible) return;
+
+      const width = parseFloat(heroCanvas.style.width) || (heroCanvas.width / (window.devicePixelRatio || 1));
+      const height = parseFloat(heroCanvas.style.height) || (heroCanvas.height / (window.devicePixelRatio || 1));
+
+      ctx.clearRect(0, 0, width, height);
+
+      const now = timestamp || performance.now();
+
+      for (let i = 0; i < squares.length; i++) {
+        const sq = squares[i];
+
+        if (!prefersReducedMotion) {
+          if (!sq.blinking && now > sq.delay) {
+            sq.blinking = true;
+            sq.blinkStart = now;
+          }
+        }
+
+        let alpha = sq.baseAlpha;
+        let isGlow = false;
+
+        if (sq.blinking) {
+          const elapsed = now - sq.blinkStart;
+          if (elapsed >= sq.blinkDuration) {
+            sq.blinking = false;
+            sq.delay = now + Math.random() * 7000;
+            sq.blinkDuration = 1400 + Math.random() * 2000;
+          } else {
+            const progress = elapsed / sq.blinkDuration;
+            const twinkleFactor = Math.sin(progress * Math.PI);
+            alpha = sq.baseAlpha + (sq.peakAlpha - sq.baseAlpha) * twinkleFactor;
+            if (alpha > 0.22) {
+              isGlow = true;
+            }
+          }
+        }
+
+        // Mouse proximity glow
+        if (mouse.x > -9000) {
+          const centerX = sq.x + squareSize / 2;
+          const centerY = sq.y + squareSize / 2;
+          const dist = Math.hypot(centerX - mouse.x, centerY - mouse.y);
+          const maxDist = 130;
+          if (dist < maxDist) {
+            const mouseBoost = (1 - dist / maxDist) * 0.6;
+            alpha = Math.max(alpha, mouseBoost);
+            if (mouseBoost > 0.18) isGlow = true;
+          }
+        }
+
+        ctx.save();
+        if (isGlow) {
+          // Pure white glow bloom (no purple)
+          ctx.shadowColor = `rgba(255, 255, 255, ${Math.min(1, alpha * 1.1)})`;
+          ctx.shadowBlur = 10 + alpha * 12;
+          ctx.fillStyle = `rgba(255, 255, 255, ${Math.min(1, alpha * 0.95)})`;
+        } else {
+          ctx.shadowBlur = 0;
+          ctx.fillStyle = `rgba(255, 255, 255, ${alpha})`;
+        }
+
+        const r = 2;
+        ctx.beginPath();
+        if (ctx.roundRect) {
+          ctx.roundRect(sq.x, sq.y, squareSize, squareSize, r);
+        } else {
+          ctx.rect(sq.x, sq.y, squareSize, squareSize);
+        }
+        ctx.fill();
+
+        // Subtle grid outline
+        ctx.strokeStyle = `rgba(255, 255, 255, ${Math.min(0.25, alpha * 0.35 + 0.035)})`;
+        ctx.lineWidth = 1;
+        ctx.stroke();
+
+        ctx.restore();
+      }
+
+      animFrameId = requestAnimationFrame(render);
+    }
+
+    heroSection.addEventListener('mousemove', (e) => {
+      const rect = heroSection.getBoundingClientRect();
+      mouse.x = e.clientX - rect.left;
+      mouse.y = e.clientY - rect.top;
+    }, { passive: true });
+
+    heroSection.addEventListener('mouseleave', () => {
+      mouse.x = -9999;
+      mouse.y = -9999;
+    }, { passive: true });
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!isVisible) {
+              isVisible = true;
+              animFrameId = requestAnimationFrame(render);
+            }
+          } else {
+            isVisible = false;
+            if (animFrameId) {
+              cancelAnimationFrame(animFrameId);
+              animFrameId = null;
+            }
+          }
+        });
+      },
+      { threshold: 0 }
+    );
+    observer.observe(heroSection);
+
+    let resizeTimer;
+    window.addEventListener('resize', () => {
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        initGrid();
+      }, 150);
+    }, { passive: true });
+
+    initGrid();
+    animFrameId = requestAnimationFrame(render);
+  }
+
 })();
