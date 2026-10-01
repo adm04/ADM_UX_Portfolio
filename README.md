@@ -30,7 +30,8 @@ Personal design & engineering portfolio of **Arkadeb Mondal** ([@adm04](https://
 │       ├── vibecoded/
 │       │   ├── vibecoded_audio.jpg
 │       │   ├── vibecoded_aurora.jpg
-│       │   └── vibecoded_kundali.jpg
+│       │   ├── vibecoded_kundali.jpg
+│       │   └── vibecoded_spidey.jpg
 │       └── experiments/
 │           ├── experiment-1.jpg
 │           ├── experiment-2.jpg
