@@ -3,7 +3,6 @@
  * Handles:
  * - Reading progress tracker
  * - Sticky navigation & active Act pill highlighting on scroll
- * - IntersectionObserver serial entrance reveals
  * - High-definition Lightbox with Pan & Zoom + Act navigation
  */
 (function () {
@@ -102,7 +101,6 @@
     const progress = Math.min(100, Math.max(0, (window.scrollY / scrollTotal) * 100));
     progressBar.style.width = progress + '%';
   }
-
   window.addEventListener('scroll', updateProgress, { passive: true });
 
   /* ── 2. Topnav Scrolled State ────────────────────────────── */
@@ -130,7 +128,7 @@
         const targetEl = document.querySelector(targetId);
         if (targetEl) {
           e.preventDefault();
-          const offset = 80;
+          const offset = 76;
           const bodyRect = document.body.getBoundingClientRect().top;
           const elementRect = targetEl.getBoundingClientRect().top;
           const elementPosition = elementRect - bodyRect;
@@ -145,37 +143,38 @@
     });
   });
 
-  /* ── 4. IntersectionObserver for Acts (Active Pill & In-View) */
+  /* ── 4. Bulletproof Active Act Tracker (Scroll Geometry) ─── */
   const actWrappers = document.querySelectorAll('.luma-act-wrapper');
-  if ('IntersectionObserver' in window && actWrappers.length > 0) {
-    const actObserver = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add('is-inview');
-            const actId = entry.target.id;
-            pillLinks.forEach(p => {
-              if (p.getAttribute('href') === '#' + actId) {
-                p.classList.add('active');
-                // Auto scroll pills horizontally if needed
-                p.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-              } else {
-                p.classList.remove('active');
-              }
-            });
-          }
-        });
-      },
-      {
-        rootMargin: '-25% 0px -40% 0px',
-        threshold: 0.1
-      }
-    );
+  function updateActiveAct() {
+    if (actWrappers.length === 0) return;
+    const scrollY = window.scrollY;
+    const viewOffset = scrollY + 220; // Trigger line 220px below top
+    let currentId = 'act-01';
 
-    actWrappers.forEach(w => actObserver.observe(w));
-  } else {
-    actWrappers.forEach(w => w.classList.add('is-inview'));
+    for (let i = 0; i < actWrappers.length; i++) {
+      const el = actWrappers[i];
+      if (el.offsetTop <= viewOffset) {
+        currentId = el.id;
+      } else {
+        break;
+      }
+    }
+
+    pillLinks.forEach(pill => {
+      if (pill.getAttribute('href') === '#' + currentId) {
+        if (!pill.classList.contains('active')) {
+          pill.classList.add('active');
+          pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      } else {
+        pill.classList.remove('active');
+      }
+    });
   }
+
+  window.addEventListener('scroll', updateActiveAct, { passive: true });
+  // Initialize once on load
+  updateActiveAct();
 
   /* ── 5. Lightbox Modal Engine ────────────────────────────── */
   const lightbox = document.getElementById('luma-lightbox');
@@ -193,9 +192,9 @@
 
   let currentActIndex = 0;
   let currentZoom = 1;
-  const zoomStep = 0.3;
-  const minZoom = 0.6;
-  const maxZoom = 3.0;
+  const zoomStep = 0.35;
+  const minZoom = 0.5;
+  const maxZoom = 3.5;
 
   function openLightbox(index) {
     if (!lightbox || !lbImg) return;
@@ -257,7 +256,7 @@
     if (currentActIndex < actsData.length - 1) {
       openLightbox(currentActIndex + 1);
     } else {
-      openLightbox(0); // Loop to start
+      openLightbox(0);
     }
   }
 
@@ -265,13 +264,15 @@
     if (currentActIndex > 0) {
       openLightbox(currentActIndex - 1);
     } else {
-      openLightbox(actsData.length - 1); // Loop to end
+      openLightbox(actsData.length - 1);
     }
   }
 
   // Trigger buttons on cards & frames
   document.querySelectorAll('[data-act-index]').forEach(el => {
     el.addEventListener('click', e => {
+      // Don't trigger if clicked on an anchor link
+      if (e.target.closest('a')) return;
       const idx = parseInt(el.getAttribute('data-act-index'), 10);
       if (!isNaN(idx)) {
         openLightbox(idx);
@@ -287,10 +288,10 @@
   if (lbNextBtn) lbNextBtn.addEventListener('click', showNextAct);
   if (lbPrevBtn) lbPrevBtn.addEventListener('click', showPrevAct);
 
-  // Click outside image stage to close
+  // Click outside image to close
   if (lbStage) {
     lbStage.addEventListener('click', e => {
-      if (e.target === lbStage) {
+      if (e.target === lbStage || e.target === lbImgWrap) {
         closeLightbox();
       }
     });
@@ -315,51 +316,35 @@
     }
   });
 
-  // Mouse wheel zoom inside lightbox
-  if (lbStage) {
-    lbStage.addEventListener('wheel', e => {
-      if (e.ctrlKey || e.metaKey) {
-        e.preventDefault();
-        if (e.deltaY < 0) {
-          zoomIn();
-        } else {
-          zoomOut();
-        }
-      }
-    }, { passive: false });
-  }
-
-  // Drag to pan in lightbox when zoomed
-  let isPanning = false;
+  // Mouse drag pan support when zoomed
+  let isDragging = false;
   let startX = 0;
   let startY = 0;
-  let scrollStartX = 0;
-  let scrollStartY = 0;
+  let scrollLeft = 0;
+  let scrollTop = 0;
 
   if (lbStage) {
     lbStage.addEventListener('mousedown', e => {
       if (currentZoom > 1) {
-        isPanning = true;
+        isDragging = true;
         startX = e.pageX - lbStage.offsetLeft;
         startY = e.pageY - lbStage.offsetTop;
-        scrollStartX = lbStage.scrollLeft;
-        scrollStartY = lbStage.scrollTop;
+        scrollLeft = lbStage.scrollLeft;
+        scrollTop = lbStage.scrollTop;
       }
     });
 
     window.addEventListener('mousemove', e => {
-      if (!isPanning || !lbStage) return;
+      if (!isDragging || !lbStage) return;
       e.preventDefault();
       const x = e.pageX - lbStage.offsetLeft;
       const y = e.pageY - lbStage.offsetTop;
-      const walkX = (x - startX) * 1.5;
-      const walkY = (y - startY) * 1.5;
-      lbStage.scrollLeft = scrollStartX - walkX;
-      lbStage.scrollTop = scrollStartY - walkY;
+      lbStage.scrollLeft = scrollLeft - (x - startX) * 1.4;
+      lbStage.scrollTop = scrollTop - (y - startY) * 1.4;
     });
 
     window.addEventListener('mouseup', () => {
-      isPanning = false;
+      isDragging = false;
     });
   }
 
