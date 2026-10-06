@@ -17,8 +17,8 @@
       title: 'LUMA — A Design System built as a product, not a UI kit',
       desc: 'The operating problem, the product thesis, and an explicit scope boundary.',
       src: 'assets/images/projects/luma/act-01-premise.png',
-      width: 4800,
-      height: 7251
+      width: 2400,
+      height: 3626
     },
     {
       id: 'act-02',
@@ -27,8 +27,8 @@
       title: 'Semantic taxonomy and three-tier token hierarchy',
       desc: 'Primitive, semantic, and component token structures with strict alias binding.',
       src: 'assets/images/projects/luma/act-02-language-and-architecture.png',
-      width: 4800,
-      height: 9840
+      width: 2400,
+      height: 4920
     },
     {
       id: 'act-03',
@@ -37,8 +37,8 @@
       title: 'Foundational scales, constraints & accessibility boundaries',
       desc: 'Color ramps, typography hierarchies, layout grids, elevation, and motion curves.',
       src: 'assets/images/projects/luma/act-03-foundations-and-tokens.png',
-      width: 4800,
-      height: 9786
+      width: 2400,
+      height: 4893
     },
     {
       id: 'act-04',
@@ -47,8 +47,8 @@
       title: 'A component is a contract, not a rectangle',
       desc: 'Anatomies, state matrices, property decision frameworks, and failure state hierarchies.',
       src: 'assets/images/projects/luma/act-04-component-ecosystem.png',
-      width: 4800,
-      height: 10983
+      width: 2400,
+      height: 5492
     },
     {
       id: 'act-05',
@@ -57,8 +57,8 @@
       title: 'One system across products, themes, and widths',
       desc: 'Interactive documentation, playground, and multi-surface stress tests.',
       src: 'assets/images/projects/luma/act-05-enablement-and-proof.png',
-      width: 4800,
-      height: 11007
+      width: 2400,
+      height: 5504
     },
     {
       id: 'act-06',
@@ -67,8 +67,8 @@
       title: 'A system needs an operating model to remain a system',
       desc: 'Semantic versioning, changelog structures, proposal lifecycles, and decision records.',
       src: 'assets/images/projects/luma/act-06-operations.png',
-      width: 4800,
-      height: 8118
+      width: 2400,
+      height: 4059
     },
     {
       id: 'act-07',
@@ -77,8 +77,8 @@
       title: 'Stewardship is designed before it is claimed',
       desc: 'Contribution workflows, inspectable evidence, adoption metrics, and SLAs.',
       src: 'assets/images/projects/luma/act-07-governance-and-evidence.png',
-      width: 4800,
-      height: 10857
+      width: 2400,
+      height: 5428
     },
     {
       id: 'act-08',
@@ -87,8 +87,8 @@
       title: 'The artifact is the system. The learning is the loop',
       desc: 'Continuous product feedback, retrospective learnings, and system close.',
       src: 'assets/images/projects/luma/act-08-learning-and-close.png',
-      width: 4800,
-      height: 9258
+      width: 2400,
+      height: 4629
     }
   ];
 
