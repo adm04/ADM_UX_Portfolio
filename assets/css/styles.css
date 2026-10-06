@@ -670,6 +670,28 @@ code {
   text-transform: uppercase;
 }
 
+/* Card — LUMA Design System Thumbnail */
+.card-thumb-luma {
+  background: #050811;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.card-thumb-badge {
+  position: absolute;
+  top: 14px;
+  left: 14px;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.card-thumb-badge .thumb-tag {
+  background: rgba(37, 99, 235, 0.25);
+  border-color: #2563EB;
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(37, 99, 235, 0.45);
+}
+
 /* Card Caption */
 .card-caption {
   display: flex;

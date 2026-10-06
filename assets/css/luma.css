@@ -1,0 +1,757 @@
+/* ═══════════════════════════════════════════════════════
+   LUMA DESIGN SYSTEM — CASE STUDY STYLES
+   Theme: OLED Dark (#050914) · Luma Blue (#2563EB) & Cyber Cyan (#38BDF8)
+   Serial Flow: 8 Acts Presentation Architecture
+   Companion to: assets/css/styles.css & assets/css/case-study.css
+   ═══════════════════════════════════════════════════════ */
+
+:root {
+  --luma-bg: #050811;
+  --luma-surface: #0A0F1D;
+  --luma-surface-elevated: #111827;
+  --luma-border: #1E293B;
+  --luma-border-bright: #334155;
+  --luma-blue: #2563EB;
+  --luma-blue-glow: rgba(37, 99, 235, 0.35);
+  --luma-cyan: #38BDF8;
+  --luma-cyan-glow: rgba(56, 189, 248, 0.25);
+  --luma-text: #F8FAFC;
+  --luma-muted: #94A3B8;
+  --luma-dim: #64748B;
+}
+
+body.luma-body {
+  background-color: var(--luma-bg);
+  background-image: 
+    radial-gradient(circle at 50% 0%, rgba(37, 99, 235, 0.12) 0%, transparent 60%),
+    radial-gradient(circle, #1E293B 1px, transparent 1px);
+  background-size: 100% 100%, 20px 20px;
+  color: var(--luma-text);
+  font-family: 'Space Mono', monospace;
+  margin: 0;
+  padding: 0;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ── Reading Progress Bar ────────────────────────────────── */
+.luma-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: rgba(15, 23, 42, 0.8);
+  z-index: 200;
+}
+
+.luma-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, #2563EB, #38BDF8, #60A5FA);
+  box-shadow: 0 0 10px rgba(56, 189, 248, 0.7);
+  transition: width 80ms ease-out;
+}
+
+/* ── Top Navigation Bar ──────────────────────────────────── */
+.luma-topnav {
+  position: sticky;
+  top: 0;
+  z-index: 150;
+  background-color: rgba(5, 8, 17, 0.88);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--luma-border);
+  padding-block: 10px;
+  transition: all 250ms ease;
+}
+
+.luma-topnav.scrolled {
+  background-color: rgba(5, 8, 17, 0.96);
+  border-bottom-color: rgba(37, 99, 235, 0.4);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.8);
+}
+
+.luma-topnav-inner {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 4vw, 48px);
+}
+
+.luma-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  flex-shrink: 0;
+}
+
+.luma-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--luma-muted);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: 6px;
+  background: #0B1120;
+  border: 1px solid var(--luma-border);
+  transition: all 200ms ease;
+}
+
+.luma-back-link:hover {
+  color: #FFFFFF;
+  border-color: var(--luma-cyan);
+  box-shadow: 0 0 12px var(--luma-cyan-glow);
+  transform: translateX(-2px);
+}
+
+.luma-back-link svg {
+  color: var(--luma-cyan);
+}
+
+.luma-brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  color: var(--luma-text);
+}
+
+.luma-brand-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 2px;
+  background: var(--luma-blue);
+  box-shadow: 0 0 8px var(--luma-blue);
+}
+
+/* ── Act Pills Scrollable Bar ────────────────────────────── */
+.luma-act-pills {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: #0B1120;
+  border: 1px solid var(--luma-border);
+  border-radius: 100px;
+  padding: 4px;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+}
+
+.luma-act-pills::-webkit-scrollbar {
+  display: none;
+}
+
+.luma-act-pill {
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  color: var(--luma-muted);
+  text-decoration: none;
+  padding: 5px 12px;
+  border-radius: 100px;
+  white-space: nowrap;
+  transition: all 200ms ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.luma-act-pill:hover {
+  color: #FFFFFF;
+  background: rgba(37, 99, 235, 0.15);
+}
+
+.luma-act-pill.active {
+  color: #FFFFFF;
+  background: var(--luma-blue);
+  box-shadow: 0 0 14px var(--luma-blue-glow);
+}
+
+.luma-act-pill .pill-num {
+  opacity: 0.7;
+}
+
+/* ── Hero Section ────────────────────────────────────────── */
+.luma-hero {
+  padding-top: clamp(48px, 6vw, 80px);
+  padding-bottom: clamp(40px, 5vw, 64px);
+  position: relative;
+}
+
+.luma-hero-container {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 60px);
+}
+
+.luma-hero-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding: 6px 14px;
+  background: rgba(37, 99, 235, 0.12);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  border-radius: 6px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--luma-cyan);
+}
+
+.luma-hero-prompt .prompt-caret {
+  color: #FFFFFF;
+  animation: lumaPulse 1.8s infinite;
+}
+
+@keyframes lumaPulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.4; }
+}
+
+.luma-hero-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(32px, 5vw, 56px);
+  font-weight: 800;
+  line-height: 1.12;
+  letter-spacing: -0.03em;
+  color: #FFFFFF;
+  margin-top: 0;
+  margin-bottom: 20px;
+}
+
+.luma-hero-title .text-gradient {
+  background: linear-gradient(135deg, #38BDF8 0%, #2563EB 50%, #60A5FA 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.luma-hero-lead {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(16px, 1.8vw, 20px);
+  font-weight: 400;
+  line-height: 1.6;
+  color: var(--luma-muted);
+  max-width: 900px;
+  margin-bottom: 36px;
+}
+
+/* ── Meta Grid ───────────────────────────────────────────── */
+.luma-meta-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 16px;
+  background: var(--luma-surface);
+  border: 1px solid var(--luma-border);
+  border-radius: 12px;
+  padding: 24px;
+  margin-bottom: 40px;
+}
+
+@media (max-width: 900px) {
+  .luma-meta-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 540px) {
+  .luma-meta-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+.luma-meta-item dt {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--luma-cyan);
+  text-transform: uppercase;
+  margin-bottom: 6px;
+}
+
+.luma-meta-item dd {
+  margin: 0;
+  font-size: 13px;
+  font-weight: 500;
+  color: #FFFFFF;
+}
+
+/* ── Quick Overview Strip ────────────────────────────────── */
+.luma-overview-strip {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 16px;
+  padding: 16px 24px;
+  background: rgba(37, 99, 235, 0.08);
+  border: 1px solid rgba(37, 99, 235, 0.25);
+  border-radius: 8px;
+  font-size: 12px;
+  color: var(--luma-muted);
+}
+
+.luma-overview-strip strong {
+  color: #FFFFFF;
+}
+
+.luma-cta-scroll {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 18px;
+  border-radius: 6px;
+  background: var(--luma-blue);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  box-shadow: 0 4px 14px var(--luma-blue-glow);
+  transition: all 200ms ease;
+}
+
+.luma-cta-scroll:hover {
+  background: #1D4ED8;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px var(--luma-blue-glow);
+}
+
+/* ── Serial Acts Section ─────────────────────────────────── */
+.luma-acts-section {
+  padding-block: 40px 100px;
+}
+
+.luma-act-wrapper {
+  max-width: 1400px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3.5vw, 48px);
+  margin-bottom: 72px;
+  position: relative;
+  scroll-margin-top: 80px;
+}
+
+/* Bi-directional In-View Transition */
+.luma-act-wrapper {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.luma-act-wrapper.is-inview {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Act Header Box ──────────────────────────────────────── */
+.luma-act-header {
+  display: flex;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: 20px;
+  flex-wrap: wrap;
+  padding: 20px 24px;
+  background: var(--luma-surface);
+  border: 1px solid var(--luma-border);
+  border-top-left-radius: 14px;
+  border-top-right-radius: 14px;
+  border-bottom: none;
+}
+
+.luma-act-meta {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.luma-act-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  color: var(--luma-cyan);
+  text-transform: uppercase;
+}
+
+.luma-act-badge .badge-tag {
+  background: rgba(56, 189, 248, 0.15);
+  border: 1px solid rgba(56, 189, 248, 0.35);
+  padding: 2px 8px;
+  border-radius: 4px;
+}
+
+.luma-act-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: clamp(20px, 2.5vw, 28px);
+  font-weight: 700;
+  color: #FFFFFF;
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.luma-act-desc {
+  font-family: 'Space Mono', monospace;
+  font-size: 12px;
+  color: var(--luma-muted);
+  margin: 0;
+  max-width: 720px;
+}
+
+.luma-act-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+}
+
+.luma-zoom-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  background: #0B1120;
+  border: 1px solid var(--luma-border);
+  border-radius: 6px;
+  color: #FFFFFF;
+  font-family: 'Space Mono', monospace;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 200ms ease;
+}
+
+.luma-zoom-btn:hover {
+  background: var(--luma-blue);
+  border-color: var(--luma-cyan);
+  box-shadow: 0 0 14px var(--luma-blue-glow);
+  transform: translateY(-1px);
+}
+
+.luma-zoom-btn svg {
+  color: var(--luma-cyan);
+}
+
+/* ── Act Image Frame ─────────────────────────────────────── */
+.luma-act-frame {
+  position: relative;
+  background: #000000;
+  border: 1px solid var(--luma-border);
+  border-bottom-left-radius: 14px;
+  border-bottom-right-radius: 14px;
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.02);
+  cursor: zoom-in;
+  transition: border-color 300ms ease, box-shadow 300ms ease;
+}
+
+.luma-act-frame:hover {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 24px 60px rgba(0, 0, 0, 0.9), 0 0 25px var(--luma-cyan-glow);
+}
+
+.luma-act-img {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  transition: transform 400ms cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+/* Subtle inspect hint overlay */
+.luma-frame-hint {
+  position: absolute;
+  bottom: 20px;
+  right: 20px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(10, 15, 29, 0.88);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid var(--luma-border-bright);
+  border-radius: 6px;
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: all 250ms ease;
+  pointer-events: none;
+}
+
+.luma-act-frame:hover .luma-frame-hint {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* ── Serial Act Connector ────────────────────────────────── */
+.luma-act-connector {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  margin-top: 36px;
+  color: var(--luma-dim);
+  font-size: 11px;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.luma-connector-line {
+  width: 2px;
+  height: 36px;
+  background: linear-gradient(180deg, var(--luma-border-bright), var(--luma-blue), transparent);
+}
+
+.luma-connector-label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 4px 12px;
+  background: rgba(11, 17, 32, 0.8);
+  border: 1px dashed var(--luma-border);
+  border-radius: 100px;
+}
+
+/* ── Fullscreen Interactive Lightbox Modal ───────────────── */
+.luma-lightbox {
+  position: fixed;
+  inset: 0;
+  z-index: 1000;
+  background: rgba(3, 5, 12, 0.94);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  display: flex;
+  flex-direction: column;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 250ms ease;
+}
+
+.luma-lightbox.is-open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.luma-lightbox-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding: 14px 24px;
+  background: rgba(10, 15, 29, 0.95);
+  border-bottom: 1px solid var(--luma-border);
+  z-index: 10;
+  flex-shrink: 0;
+}
+
+.luma-lightbox-info {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.luma-lightbox-act {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--luma-cyan);
+}
+
+.luma-lightbox-title {
+  font-family: 'Manrope', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #FFFFFF;
+}
+
+.luma-lightbox-controls {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.luma-ctrl-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  background: #0B1120;
+  border: 1px solid var(--luma-border);
+  border-radius: 6px;
+  color: #FFFFFF;
+  cursor: pointer;
+  transition: all 180ms ease;
+}
+
+.luma-ctrl-btn:hover {
+  background: var(--luma-blue);
+  border-color: var(--luma-cyan);
+  box-shadow: 0 0 10px var(--luma-blue-glow);
+}
+
+.luma-ctrl-btn--close {
+  background: rgba(239, 68, 68, 0.15);
+  border-color: rgba(239, 68, 68, 0.4);
+  color: #F87171;
+}
+
+.luma-ctrl-btn--close:hover {
+  background: #EF4444;
+  border-color: #EF4444;
+  color: #FFFFFF;
+  box-shadow: 0 0 14px rgba(239, 68, 68, 0.5);
+}
+
+.luma-lightbox-stage {
+  flex: 1;
+  position: relative;
+  overflow: auto;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  padding: 24px;
+  cursor: grab;
+}
+
+.luma-lightbox-stage:active {
+  cursor: grabbing;
+}
+
+.luma-lightbox-img-wrap {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  transition: transform 150ms ease-out;
+  transform-origin: center top;
+  max-width: 100%;
+}
+
+.luma-lightbox-img {
+  max-width: 100%;
+  width: auto;
+  height: auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.9);
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* Lightbox Nav Arrows */
+.luma-lightbox-nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: rgba(10, 15, 29, 0.85);
+  border: 1px solid var(--luma-border-bright);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 20;
+  transition: all 200ms ease;
+}
+
+.luma-lightbox-nav:hover {
+  background: var(--luma-blue);
+  border-color: var(--luma-cyan);
+  box-shadow: 0 0 16px var(--luma-blue-glow);
+  transform: translateY(-50%) scale(1.08);
+}
+
+.luma-lightbox-nav--prev {
+  left: 24px;
+}
+
+.luma-lightbox-nav--next {
+  right: 24px;
+}
+
+@media (max-width: 768px) {
+  .luma-lightbox-nav {
+    display: none;
+  }
+}
+
+/* ── Footer ──────────────────────────────────────────────── */
+.luma-footer {
+  background: #02040A;
+  border-top: 1px solid var(--luma-border);
+  padding-block: 48px 36px;
+  margin-top: 40px;
+}
+
+.luma-footer-inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding-inline: clamp(20px, 4vw, 60px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 24px;
+}
+
+.luma-footer-links {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.luma-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 16px;
+  border-radius: 6px;
+  background: #0B1120;
+  border: 1px solid var(--luma-border);
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  transition: all 200ms ease;
+}
+
+.luma-footer-btn:hover {
+  border-color: var(--luma-cyan);
+  box-shadow: 0 0 12px var(--luma-cyan-glow);
+  color: #FFFFFF;
+  transform: translateY(-2px);
+}
+
+.luma-footer-copy {
+  font-size: 11px;
+  color: var(--luma-dim);
+  margin: 0;
+}

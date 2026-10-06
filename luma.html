@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>LUMA Design System — Case Study · Arkadeb Mondal</title>
+  <meta name="description" content="A comprehensive design system case study built as a product across 8 sequential acts. Connecting architecture, tokens, components, operations, and governance." />
+  <meta name="keywords" content="LUMA, Design System, UI/UX, Product Design, Arkadeb Mondal, Figma Variables, Design Tokens, Component Contracts" />
+  <meta property="og:title" content="LUMA Design System — Case Study · Arkadeb Mondal" />
+  <meta property="og:description" content="A Design System built as a product, not a UI kit. 8 Sequential Acts." />
+  <meta property="og:type" content="article" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/styles.css?v=4.0" />
+  <link rel="stylesheet" href="assets/css/case-study.css?v=4.0" />
+  <link rel="stylesheet" href="assets/css/luma.css?v=1.0" />
+</head>
+<body class="luma-body">
+
+  <!-- ═══════════════════════ READING PROGRESS ═══════════════════════ -->
+  <div class="luma-progress-container" aria-hidden="true">
+    <div class="luma-progress-bar" id="luma-progress-bar"></div>
+  </div>
+
+  <!-- ═══════════════════════ DYNAMIC AURORA BACKGROUND ═══════════════════════ -->
+  <div class="aurora-bg" aria-hidden="true">
+    <div class="aurora-blob blob-1"></div>
+    <div class="aurora-blob blob-2"></div>
+    <div class="aurora-blob blob-3"></div>
+    <div class="aurora-blob blob-4"></div>
+  </div>
+
+  <!-- ═══════════════════════ TOP NAV ═══════════════════════ -->
+  <header class="luma-topnav" role="banner">
+    <div class="luma-topnav-inner">
+      <div class="luma-nav-left">
+        <a href="index.html#projects" class="luma-back-link" id="luma-back-link">
+          <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          <span>Projects</span>
+        </a>
+        <div class="luma-brand-tag">
+          <span class="luma-brand-dot"></span>
+          <span>LUMA // SYSTEM</span>
+        </div>
+      </div>
+
+      <!-- 8 Acts Pill Navigation Bar -->
+      <nav class="luma-act-pills" aria-label="LUMA Acts serial navigation">
+        <a href="#act-01" class="luma-act-pill active" id="pill-act-01"><span class="pill-num">01</span> Premise</a>
+        <a href="#act-02" class="luma-act-pill" id="pill-act-02"><span class="pill-num">02</span> Architecture</a>
+        <a href="#act-03" class="luma-act-pill" id="pill-act-03"><span class="pill-num">03</span> Tokens</a>
+        <a href="#act-04" class="luma-act-pill" id="pill-act-04"><span class="pill-num">04</span> Components</a>
+        <a href="#act-05" class="luma-act-pill" id="pill-act-05"><span class="pill-num">05</span> Enablement</a>
+        <a href="#act-06" class="luma-act-pill" id="pill-act-06"><span class="pill-num">06</span> Operations</a>
+        <a href="#act-07" class="luma-act-pill" id="pill-act-07"><span class="pill-num">07</span> Governance</a>
+        <a href="#act-08" class="luma-act-pill" id="pill-act-08"><span class="pill-num">08</span> Learning</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="luma-main">
+
+    <!-- ═══════════════════════ HERO SECTION ═══════════════════════ -->
+    <section class="luma-hero" aria-label="Case Study Overview">
+      <div class="luma-hero-container">
+        
+        <div class="luma-hero-prompt">
+          <span class="prompt-caret">&gt;</span>
+          <span>SYSTEM_LOG // CASE_STUDY_02 // LUMA_DESIGN_SYSTEM // 8_ACTS</span>
+        </div>
+
+        <h1 class="luma-hero-title">
+          LUMA — Design once. Connect everything. <br />
+          <span class="text-gradient">Scale with intent.</span>
+        </h1>
+
+        <p class="luma-hero-lead">
+          A design system designed as a product, not a UI kit. LUMA is a connected operating framework that bridges design decisions, token graphs, component contracts, release operations, and stewardship evidence across 8 sequential acts.
+        </p>
+
+        <!-- Metadata Grid -->
+        <dl class="luma-meta-grid">
+          <div class="luma-meta-item">
+            <dt>[ ROLE ]</dt>
+            <dd>Design System Architect &amp; Lead Designer</dd>
+          </div>
+          <div class="luma-meta-item">
+            <dt>[ ARCHITECTURE ]</dt>
+            <dd>8 Sequential Acts · 55 Decision Nodes</dd>
+          </div>
+          <div class="luma-meta-item">
+            <dt>[ CORE DOMAINS ]</dt>
+            <dd>Tokens, Contracts, Operations, Governance</dd>
+          </div>
+          <div class="luma-meta-item">
+            <dt>[ TOOLING ]</dt>
+            <dd>Figma Variables, Design Tokens, Web &amp; Mobile</dd>
+          </div>
+        </dl>
+
+        <!-- Quick Summary Strip -->
+        <div class="luma-overview-strip">
+          <div>
+            <span><strong>Case Study Format:</strong> 8 High-Resolution Sequential Acts. Click any Act to inspect in full resolution.</span>
+          </div>
+          <a href="#act-01" class="luma-cta-scroll">
+            <span>Begin Act 01</span>
+            <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14"/><path d="m19 12-7 7-7-7"/></svg>
+          </a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ═══════════════════════ 8 SERIAL ACTS ═══════════════════════ -->
+    <section class="luma-acts-section" aria-label="LUMA 8 Sequential Acts">
+
+      <!-- ── ACT 01: PREMISE ── -->
+      <article class="luma-act-wrapper is-inview" id="act-01" aria-labelledby="act-01-title">
+        <div class="luma-act-header">
+          <div class="luma-act-meta">
+            <div class="luma-act-badge">
+              <span class="badge-tag">ACT 01 // 08</span>
+              <span>THE OPERATING SYSTEM</span>
+            </div>
+            <h2 class="luma-act-title" id="act-01-title">LUMA — A Design System built as a product, not a UI kit</h2>
+            <p class="luma-act-desc">The operating problem, the product thesis, and an explicit scope boundary. Architecture before inventory.</p>
+          </div>
+          <div class="luma-act-actions">
+            <button class="luma-zoom-btn" type="button" data-act-index="0" aria-label="Inspect Act 01 in high resolution">
+              <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              <span>Inspect High-Res</span>
+            </button>
+          </div>
+        </div>
+        <div class="luma-act-frame" data-act-index="0">
+          <img 
+            src="assets/images/projects/luma/act-01-premise.png" 
+            alt="LUMA Act 1 — Premise and Operating System. High resolution presentation board." 
+            class="luma-act-img" 
+            width="4800" 
+            height="7251" 
+            fetchpriority="high" 
+            decoding="async" 
+          />
+          <div class="luma-frame-hint">
+            <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            <span>Click to zoom &amp; inspect</span>
+          </div>
+        </div>
+        <div class="luma-act-connector" aria-hidden="true">
+          <div class="luma-connector-line"></div>
+          <span class="luma-connector-label">SERIAL FLOW // PROCEED TO ACT 02</span>
+        </div>
+      </article>
+
+      <!-- ── ACT 02: LANGUAGE & ARCHITECTURE ── -->
+      <article class="luma-act-wrapper" id="act-02" aria-labelledby="act-02-title">
+        <div class="luma-act-header">
+          <div class="luma-act-meta">
+            <div class="luma-act-badge">
+              <span class="badge-tag">ACT 02 // 08</span>
+              <span>LANGUAGE &amp; ARCHITECTURE</span>
+            </div>
+            <h2 class="luma-act-title" id="act-02-title">Semantic taxonomy and three-tier token hierarchy</h2>
+            <p class="luma-act-desc">Primitive, semantic, and component token structures with strict alias binding and cross-platform naming rules.</p>
+          </div>
+          <div class="luma-act-actions">
+            <button class="luma-zoom-btn" type="button" data-act-index="1" aria-label="Inspect Act 02 in high resolution">
+              <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              <span>Inspect High-Res</span>
+            </button>
+          </div>
+        </div>
+        <div class="luma-act-frame" data-act-index="1">
+          <img 
+            src="assets/images/projects/luma/act-02-language-and-architecture.png" 
+            alt="LUMA Act 2 — Language and Architecture. Semantic taxonomy, token hierarchy, and decision graph." 
+            class="luma-act-img" 
+            width="4800" 
+            height="9840" 
+            loading="lazy" 
+            decoding="async" 
+          />
+          <div class="luma-frame-hint">
+            <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            <span>Click to zoom &amp; inspect</span>
+          </div>
+        </div>
+        <div class="luma-act-connector" aria-hidden="true">
+          <div class="luma-connector-line"></div>
+          <span class="luma-connector-label">SERIAL FLOW // PROCEED TO ACT 03</span>
+        </div>
+      </article>
+
+      <!-- ── ACT 03: FOUNDATIONS & TOKENS ── -->
+      <article class="luma-act-wrapper" id="act-03" aria-labelledby="act-03-title">
+        <div class="luma-act-header">
+          <div class="luma-act-meta">
+            <div class="luma-act-badge">
+              <span class="badge-tag">ACT 03 // 08</span>
+              <span>FOUNDATIONS &amp; TOKENS</span>
+            </div>
+            <h2 class="luma-act-title" id="act-03-title">Foundational constraints, scales &amp; accessibility boundaries</h2>
+            <p class="luma-act-desc">Color ramps, accessibility contrast thresholds, typography hierarchies, layout grids, elevation, and motion curves.</p>
+          </div>
+          <div class="luma-act-actions">
+            <button class="luma-zoom-btn" type="button" data-act-index="2" aria-label="Inspect Act 03 in high resolution">
+              <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              <span>Inspect High-Res</span>
+            </button>
+          </div>
+        </div>
+        <div class="luma-act-frame" data-act-index="2">
+          <img 
+            src="assets/images/projects/luma/act-03-foundations-and-tokens.png" 
+            alt="LUMA Act 3 — Foundations and Tokens. Color systems, typography scales, layout grids, and motion." 
+            class="luma-act-img" 
+            width="4800" 
+            height="9786" 
+            loading="lazy" 
+            decoding="async" 
+          />
+          <div class="luma-frame-hint">
+            <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            <span>Click to zoom &amp; inspect</span>
+          </div>
+        </div>
+        <div class="luma-act-connector" aria-hidden="true">
+          <div class="luma-connector-line"></div>
+          <span class="luma-connector-label">SERIAL FLOW // PROCEED TO ACT 04</span>
+        </div>
+      </article>
+
+      <!-- ── ACT 04: COMPONENT ECOSYSTEM ── -->
+      <article class="luma-act-wrapper" id="act-04" aria-labelledby="act-04-title">
+        <div class="luma-act-header">
+          <div class="luma-act-meta">
+            <div class="luma-act-badge">
+              <span class="badge-tag">ACT 04 // 08</span>
+              <span>COMPONENT ECOSYSTEM</span>
+            </div>
+            <h2 class="luma-act-title" id="act-04-title">A component is a contract, not a rectangle</h2>
+            <p class="luma-act-desc">Component anatomies, state matrices, property decision frameworks, variant debt reduction, and empty &amp; error failure states.</p>
+          </div>
+          <div class="luma-act-actions">
+            <button class="luma-zoom-btn" type="button" data-act-index="3" aria-label="Inspect Act 04 in high resolution">
+              <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              <span>Inspect High-Res</span>
+            </button>
+          </div>
+        </div>
+        <div class="luma-act-frame" data-act-index="3">
+          <img 
+            src="assets/images/projects/luma/act-04-component-ecosystem.png" 
+            alt="LUMA Act 4 — Component Ecosystem. Component contracts, state matrix, and failure state hierarchy." 
+            class="luma-act-img" 
+            width="4800" 
+            height="10983" 
+            loading="lazy" 
+            decoding="async" 
+          />
+          <div class="luma-frame-hint">
+            <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            <span>Click to zoom &amp; inspect</span>
+          </div>
+        </div>
+        <div class="luma-act-connector" aria-hidden="true">
+          <div class="luma-connector-line"></div>
+          <span class="luma-connector-label">SERIAL FLOW // PROCEED TO ACT 05</span>
+        </div>
+      </article>
+
+      <!-- ── ACT 05: ENABLEMENT & PROOF ── -->
+      <article class="luma-act-wrapper" id="act-05" aria-labelledby="act-05-title">
+        <div class="luma-act-header">
+          <div class="luma-act-meta">
+            <div class="luma-act-badge">
+              <span class="badge-tag">ACT 05 // 08</span>
+              <span>ENABLEMENT &amp; PROOF</span>
+            </div>
+            <h2 class="luma-act-title" id="act-05-title">One system across products, themes, and widths</h2>
+            <p class="luma-act-desc">Interactive documentation architecture, component playgrounds, and production stress tests across light, dark, and mobile surfaces.</p>
+          </div>
+          <div class="luma-act-actions">
+            <button class="luma-zoom-btn" type="button" data-act-index="4" aria-label="Inspect Act 05 in high resolution">
+              <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              <span>Inspect High-Res</span>
+            </button>
+          </div>
+        </div>
+        <div class="luma-act-frame" data-act-index="4">
+          <img 
+            src="assets/images/projects/luma/act-05-enablement-and-proof.png" 
+            alt="LUMA Act 5 — Enablement and Proof. Multi-theme support, responsive layouts, and living documentation." 
+            class="luma-act-img" 
+            width="4800" 
+            height="11007" 
+            loading="lazy" 
+            decoding="async" 
+          />
+          <div class="luma-frame-hint">
+            <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            <span>Click to zoom &amp; inspect</span>
+          </div>
+        </div>
+        <div class="luma-act-connector" aria-hidden="true">
+          <div class="luma-connector-line"></div>
+          <span class="luma-connector-label">SERIAL FLOW // PROCEED TO ACT 06</span>
+        </div>
+      </article>
+
+      <!-- ── ACT 06: OPERATIONS ── -->
+      <article class="luma-act-wrapper" id="act-06" aria-labelledby="act-06-title">
+        <div class="luma-act-header">
+          <div class="luma-act-meta">
+            <div class="luma-act-badge">
+              <span class="badge-tag">ACT 06 // 08</span>
+              <span>OPERATIONS &amp; RELEASE</span>
+            </div>
+            <h2 class="luma-act-title" id="act-06-title">A system needs an operating model to remain a system</h2>
+            <p class="luma-act-desc">Semantic versioning, changelog structures, proposal lifecycles, and architecture decision records preserving the 'why'.</p>
+          </div>
+          <div class="luma-act-actions">
+            <button class="luma-zoom-btn" type="button" data-act-index="5" aria-label="Inspect Act 06 in high resolution">
+              <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              <span>Inspect High-Res</span>
+            </button>
+          </div>
+        </div>
+        <div class="luma-act-frame" data-act-index="5">
+          <img 
+            src="assets/images/projects/luma/act-06-operations.png" 
+            alt="LUMA Act 6 — Operations. Semantic versioning, changelog models, release pipelines, and stakeholder boundaries." 
+            class="luma-act-img" 
+            width="4800" 
+            height="8118" 
+            loading="lazy" 
+            decoding="async" 
+          />
+          <div class="luma-frame-hint">
+            <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            <span>Click to zoom &amp; inspect</span>
+          </div>
+        </div>
+        <div class="luma-act-connector" aria-hidden="true">
+          <div class="luma-connector-line"></div>
+          <span class="luma-connector-label">SERIAL FLOW // PROCEED TO ACT 07</span>
+        </div>
+      </article>
+
+      <!-- ── ACT 07: GOVERNANCE & EVIDENCE ── -->
+      <article class="luma-act-wrapper" id="act-07" aria-labelledby="act-07-title">
+        <div class="luma-act-header">
+          <div class="luma-act-meta">
+            <div class="luma-act-badge">
+              <span class="badge-tag">ACT 07 // 08</span>
+              <span>GOVERNANCE &amp; EVIDENCE</span>
+            </div>
+            <h2 class="luma-act-title" id="act-07-title">Stewardship is designed before it is claimed</h2>
+            <p class="luma-act-desc">Contribution workflows, inspectable evidence boundaries, adoption metrics, SLAs, and the LUMA System Health scorecard.</p>
+          </div>
+          <div class="luma-act-actions">
+            <button class="luma-zoom-btn" type="button" data-act-index="6" aria-label="Inspect Act 07 in high resolution">
+              <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              <span>Inspect High-Res</span>
+            </button>
+          </div>
+        </div>
+        <div class="luma-act-frame" data-act-index="6">
+          <img 
+            src="assets/images/projects/luma/act-07-governance-and-evidence.png" 
+            alt="LUMA Act 7 — Governance and Evidence. Stewardship models, contribution pipeline, and system health scorecard." 
+            class="luma-act-img" 
+            width="4800" 
+            height="10857" 
+            loading="lazy" 
+            decoding="async" 
+          />
+          <div class="luma-frame-hint">
+            <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            <span>Click to zoom &amp; inspect</span>
+          </div>
+        </div>
+        <div class="luma-act-connector" aria-hidden="true">
+          <div class="luma-connector-line"></div>
+          <span class="luma-connector-label">SERIAL FLOW // PROCEED TO ACT 08</span>
+        </div>
+      </article>
+
+      <!-- ── ACT 08: LEARNING & CLOSE ── -->
+      <article class="luma-act-wrapper" id="act-08" aria-labelledby="act-08-title">
+        <div class="luma-act-header">
+          <div class="luma-act-meta">
+            <div class="luma-act-badge">
+              <span class="badge-tag">ACT 08 // 08</span>
+              <span>LEARNING &amp; CLOSE</span>
+            </div>
+            <h2 class="luma-act-title" id="act-08-title">The artifact is the system. The learning is the loop.</h2>
+            <p class="luma-act-desc">Connecting decisions back to product outcomes, retrospective insights, and closing the continuous product loop.</p>
+          </div>
+          <div class="luma-act-actions">
+            <button class="luma-zoom-btn" type="button" data-act-index="7" aria-label="Inspect Act 08 in high resolution">
+              <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+              <span>Inspect High-Res</span>
+            </button>
+          </div>
+        </div>
+        <div class="luma-act-frame" data-act-index="7">
+          <img 
+            src="assets/images/projects/luma/act-08-learning-and-close.png" 
+            alt="LUMA Act 8 — Learning and Close. Retrospective reflection, continuous loop, and framework close." 
+            class="luma-act-img" 
+            width="4800" 
+            height="9258" 
+            loading="lazy" 
+            decoding="async" 
+          />
+          <div class="luma-frame-hint">
+            <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 3h6v6"/><path d="M9 21H3v-6"/><path d="M21 3l-7 7"/><path d="M3 21l7-7"/></svg>
+            <span>Click to zoom &amp; inspect</span>
+          </div>
+        </div>
+      </article>
+
+    </section>
+
+  </main>
+
+  <!-- ═══════════════════════ HIGH-RES LIGHTBOX MODAL ═══════════════════════ -->
+  <div class="luma-lightbox" id="luma-lightbox" role="dialog" aria-modal="true" aria-label="High resolution Act inspector">
+    <div class="luma-lightbox-bar">
+      <div class="luma-lightbox-info">
+        <span class="luma-lightbox-act" id="luma-lb-act">ACT 01 // PREMISE</span>
+        <span class="luma-lightbox-title" id="luma-lb-title">LUMA — A Design System built as a product, not a UI kit</span>
+      </div>
+      <div class="luma-lightbox-controls">
+        <button class="luma-ctrl-btn" id="luma-lb-zoomin" type="button" title="Zoom in (+)">
+          <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="11" y1="8" x2="11" y2="14"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </button>
+        <button class="luma-ctrl-btn" id="luma-lb-zoomout" type="button" title="Zoom out (-)">
+          <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/><line x1="8" y1="11" x2="14" y2="11"/></svg>
+        </button>
+        <button class="luma-ctrl-btn" id="luma-lb-reset" type="button" title="Reset Zoom">
+          <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 9-9 9.75 9.75 0 0 0-6.74 2.74L3 8"/><path d="M3 3v5h5"/></svg>
+        </button>
+        <button class="luma-ctrl-btn luma-ctrl-btn--close" id="luma-lb-close" type="button" title="Close (Esc)">
+          <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+        </button>
+      </div>
+    </div>
+
+    <!-- Lightbox Navigation Arrows -->
+    <button class="luma-lightbox-nav luma-lightbox-nav--prev" id="luma-lb-prev" type="button" title="Previous Act (Left Arrow)">
+      <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="15 18 9 12 15 6"/></svg>
+    </button>
+    <button class="luma-lightbox-nav luma-lightbox-nav--next" id="luma-lb-next" type="button" title="Next Act (Right Arrow)">
+      <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="9 18 15 12 9 6"/></svg>
+    </button>
+
+    <div class="luma-lightbox-stage" id="luma-lb-stage">
+      <div class="luma-lightbox-img-wrap" id="luma-lb-wrap">
+        <img src="" alt="" class="luma-lightbox-img" id="luma-lb-img" />
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══════════════════════ FOOTER ═══════════════════════ -->
+  <footer class="luma-footer" role="contentinfo">
+    <div class="luma-footer-inner">
+      <div class="luma-footer-links">
+        <a href="index.html#projects" class="luma-footer-btn">
+          <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m12 19-7-7 7-7"/><path d="M19 12H5"/></svg>
+          <span>All Projects</span>
+        </a>
+        <a href="career-restart.html" class="luma-footer-btn">
+          <span>Case Study: Career Restart</span>
+          <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"/></svg>
+        </a>
+        <a href="mailto:arkadeb03@gmail.com" class="luma-footer-btn">
+          <span>Get in Touch</span>
+          <svg class="icon-std" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7h10v10"/><path d="M7 17 17 7"/></svg>
+        </a>
+      </div>
+      <p class="luma-footer-copy">© 2026 Arkadeb Mondal · LUMA Design System Architecture</p>
+    </div>
+  </footer>
+
+  <script src="assets/js/luma.js"></script>
+</body>
+</html>
