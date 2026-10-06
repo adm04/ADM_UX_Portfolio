@@ -1,7 +1,9 @@
 # Arkadeb Mondal Portfolio
 
 > **Live Website:** [https://adm04.github.io/ADM_UX_Portfolio/](https://adm04.github.io/ADM_UX_Portfolio/)  
-> **Case Study:** [Career Restart & Learning](https://adm04.github.io/ADM_UX_Portfolio/career-restart.html)
+> **Case Studies:**  
+> - [LUMA Design System](https://adm04.github.io/ADM_UX_Portfolio/luma.html) (8 Sequential Acts)  
+> - [Career Restart & Learning](https://adm04.github.io/ADM_UX_Portfolio/career-restart.html)
 
 Personal design & engineering portfolio of **Arkadeb Mondal** ([@adm04](https://github.com/adm04)).
 
@@ -13,30 +15,26 @@ Personal design & engineering portfolio of **Arkadeb Mondal** ([@adm04](https://
 ├── assets/
 │   ├── css/
 │   │   ├── styles.css
-│   │   └── case-study.css
+│   │   ├── case-study.css
+│   │   └── luma.css
 │   ├── js/
 │   │   ├── main.js
-│   │   └── case-study.js
+│   │   ├── case-study.js
+│   │   └── luma.js
 │   └── images/
 │       ├── avatars/
-│       │   ├── avatar.jpg
-│       │   └── avatar2.jpg
 │       ├── projects/
+│       │   ├── luma/ (8 Sequential Acts)
+│       │   ├── luma_cover.jpg
 │       │   ├── aanvi_website.jpg
 │       │   ├── elaara_branding.jpg
 │       │   ├── learnify_dashboard.jpg
 │       │   ├── mfd_dashboard.jpg
 │       │   └── z18_branding.jpg
 │       ├── vibecoded/
-│       │   ├── vibecoded_audio.jpg
-│       │   ├── vibecoded_aurora.jpg
-│       │   ├── vibecoded_kundali.jpg
-│       │   └── vibecoded_spidey.jpg
 │       └── experiments/
-│           ├── experiment-1.jpg
-│           ├── experiment-2.jpg
-│           └── experiment-3.jpg
 ├── index.html
+├── luma.html
 ├── career-restart.html
 ├── README.md
 └── LICENSE
