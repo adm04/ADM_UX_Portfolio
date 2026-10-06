@@ -92,35 +92,85 @@
     }
   ];
 
-  /* ── 1. Reading Progress Bar ──────────────────────────────── */
+  /* ── 1. Unified Performant Scroll Engine (RAF + Cached Offsets) ─ */
   const progressBar = document.getElementById('luma-progress-bar');
-  function updateProgress() {
-    if (!progressBar) return;
-    const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
-    if (scrollTotal <= 0) return;
-    const progress = Math.min(100, Math.max(0, (window.scrollY / scrollTotal) * 100));
-    progressBar.style.width = progress + '%';
-  }
-  window.addEventListener('scroll', updateProgress, { passive: true });
-
-  /* ── 2. Topnav Scrolled State ────────────────────────────── */
   const topnav = document.querySelector('.luma-topnav');
-  if (topnav) {
-    window.addEventListener(
-      'scroll',
-      () => {
-        if (window.scrollY > 20) {
-          topnav.classList.add('scrolled');
-        } else {
-          topnav.classList.remove('scrolled');
+  const pillsContainer = document.querySelector('.luma-act-pills');
+  const pillLinks = document.querySelectorAll('.luma-act-pill');
+  const actWrappers = document.querySelectorAll('.luma-act-wrapper');
+
+  let actOffsets = [];
+  function cacheOffsets() {
+    actOffsets = Array.from(actWrappers).map(el => ({
+      id: el.id,
+      top: el.getBoundingClientRect().top + window.scrollY
+    }));
+  }
+  window.addEventListener('load', cacheOffsets, { passive: true });
+  window.addEventListener('resize', cacheOffsets, { passive: true });
+  cacheOffsets();
+
+  let ticking = false;
+  function handleScroll() {
+    if (!ticking) {
+      window.requestAnimationFrame(() => {
+        const scrollY = window.scrollY;
+
+        // Reading progress bar
+        if (progressBar) {
+          const scrollTotal = document.documentElement.scrollHeight - window.innerHeight;
+          if (scrollTotal > 0) {
+            progressBar.style.width = Math.min(100, Math.max(0, (scrollY / scrollTotal) * 100)) + '%';
+          }
         }
-      },
-      { passive: true }
-    );
+
+        // Topnav scrolled state
+        if (topnav) {
+          if (scrollY > 20) {
+            topnav.classList.add('scrolled');
+          } else {
+            topnav.classList.remove('scrolled');
+          }
+        }
+
+        // Active Act Pill sync (Calculated purely from cached offsets)
+        if (actOffsets.length > 0) {
+          const triggerLine = scrollY + 220;
+          let currentId = actOffsets[0].id;
+          for (let i = 0; i < actOffsets.length; i++) {
+            if (actOffsets[i].top <= triggerLine) {
+              currentId = actOffsets[i].id;
+            } else {
+              break;
+            }
+          }
+
+          pillLinks.forEach(pill => {
+            if (pill.getAttribute('href') === '#' + currentId) {
+              if (!pill.classList.contains('active')) {
+                pill.classList.add('active');
+                // Scroll ONLY horizontal pill menu container, NEVER hijack window scroll!
+                if (pillsContainer) {
+                  const targetLeft = pill.offsetLeft - (pillsContainer.clientWidth / 2) + (pill.clientWidth / 2);
+                  pillsContainer.scrollTo({ left: targetLeft, behavior: 'smooth' });
+                }
+              }
+            } else {
+              pill.classList.remove('active');
+            }
+          });
+        }
+
+        ticking = false;
+      });
+      ticking = true;
+    }
   }
 
-  /* ── 3. Smooth Scroll For Act Pills ──────────────────────── */
-  const pillLinks = document.querySelectorAll('.luma-act-pill');
+  window.addEventListener('scroll', handleScroll, { passive: true });
+  handleScroll();
+
+  /* ── 2. Smooth Scroll For Act Pills ──────────────────────── */
   pillLinks.forEach(pill => {
     pill.addEventListener('click', e => {
       const targetId = pill.getAttribute('href');
@@ -142,39 +192,6 @@
       }
     });
   });
-
-  /* ── 4. Bulletproof Active Act Tracker (Scroll Geometry) ─── */
-  const actWrappers = document.querySelectorAll('.luma-act-wrapper');
-  function updateActiveAct() {
-    if (actWrappers.length === 0) return;
-    const scrollY = window.scrollY;
-    const viewOffset = scrollY + 220; // Trigger line 220px below top
-    let currentId = 'act-01';
-
-    for (let i = 0; i < actWrappers.length; i++) {
-      const el = actWrappers[i];
-      if (el.offsetTop <= viewOffset) {
-        currentId = el.id;
-      } else {
-        break;
-      }
-    }
-
-    pillLinks.forEach(pill => {
-      if (pill.getAttribute('href') === '#' + currentId) {
-        if (!pill.classList.contains('active')) {
-          pill.classList.add('active');
-          pill.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
-        }
-      } else {
-        pill.classList.remove('active');
-      }
-    });
-  }
-
-  window.addEventListener('scroll', updateActiveAct, { passive: true });
-  // Initialize once on load
-  updateActiveAct();
 
   /* ── 5. Lightbox Modal Engine ────────────────────────────── */
   const lightbox = document.getElementById('luma-lightbox');
