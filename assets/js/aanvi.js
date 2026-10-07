@@ -59,29 +59,29 @@
     {
       id: 'page-06',
       num: '06',
-      tag: 'E-COMMERCE ARCHITECTURE',
-      title: 'Shopify Storefront & Mobile Shopping Experience',
-      desc: 'Curated product detail pages, silver category filters, quick-buy drawers, and conversion UX.',
-      src: '',
-      isUpcoming: true
+      tag: 'MOBILE STOREFRONT EXPERIENCE',
+      title: 'App-Like Mobile Storefront & Multi-Device Perspective Mockup',
+      desc: 'Mobile-first shopping experience with category arches (Earrings, Pendants, Toe Rings), skin-friendly & anti-tarnish assurances.',
+      src: 'assets/images/projects/aanvi/page-06-mobile-storefront.jpg',
+      isUpcoming: false
     },
     {
       id: 'page-07',
       num: '07',
-      tag: 'DESIGN SYSTEM & TOKENS',
-      title: 'Digital Component Library & Token Specifications',
-      desc: 'Atomic components, responsive grid contracts, micro-interactions, and accessibility standards.',
-      src: '',
-      isUpcoming: true
+      tag: 'WEBSITE DESIGN & DESKTOP STORE',
+      title: 'Responsive Desktop Homepage, Collection Arches & Store Locator',
+      desc: 'Full e-commerce interface featuring dynamic hero banners, architectural category arches, curated bestsellers, and heritage trust signals.',
+      src: 'assets/images/projects/aanvi/page-07-website-design.png',
+      isUpcoming: false
     },
     {
       id: 'page-08',
       num: '08',
-      tag: 'LAUNCH & IMPACT',
-      title: 'Brand Launch, Campaign Strategy & Go-To-Market Impact',
-      desc: 'Multi-channel launch rollout, packaging reveal, influencer seeding, and e-commerce growth metrics.',
-      src: '',
-      isUpcoming: true
+      tag: 'PRODUCT ARCHITECTURE & SOCIAL GRID',
+      title: 'PDP Above-the-Fold UX, Social Media Curation & Brand Conclusion',
+      desc: 'Solitaire Light Pendant product specifications, hallmarked authenticity credentials, organic social feed curation, and final brand synthesis.',
+      src: 'assets/images/projects/aanvi/page-08-pdp-social-brand.png',
+      isUpcoming: false
     }
   ];
 
