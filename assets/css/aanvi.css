@@ -304,9 +304,7 @@ body.aanvi-body {
 
 .aanvi-stack-item {
   width: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  display: block;
   margin: 0;
   padding: 0;
   line-height: 0;
@@ -316,9 +314,9 @@ body.aanvi-body {
 
 .aanvi-stack-item img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   height: auto;
-  margin: 0 auto;
+  margin: 0;
   /* Ultra-sharp anti-blur raster filtering */
   image-rendering: -webkit-optimize-contrast;
   image-rendering: high-quality;
