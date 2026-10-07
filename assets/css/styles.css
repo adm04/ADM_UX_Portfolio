@@ -612,6 +612,9 @@ code {
   height: 100%;
   object-fit: cover;
   transition: transform 400ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: high-quality;
+  transform: translateZ(0);
 }
 
 .project-card:hover .card-thumbnail img {
@@ -677,6 +680,13 @@ code {
   position: relative;
 }
 
+/* Card — Aanvi 925 Silver Thumbnail */
+.card-thumb-aanvi {
+  background: radial-gradient(circle at 50% 30%, #151F13 0%, #080C07 100%);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
 .card-thumb-badge {
   position: absolute;
   top: 14px;
@@ -690,6 +700,62 @@ code {
   border-color: #2563EB;
   color: #FFFFFF;
   box-shadow: 0 0 12px rgba(37, 99, 235, 0.45);
+}
+
+.card-thumb-badge .thumb-tag--aanvi-case {
+  background: rgba(61, 79, 53, 0.55);
+  border-color: #7B946E;
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(123, 148, 110, 0.4);
+}
+
+.card-thumb-badge .thumb-tag--live {
+  pointer-events: auto;
+  background: rgba(226, 175, 142, 0.25);
+  border-color: #E2AF8E;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(226, 175, 142, 0.35);
+  transition: all 180ms ease;
+}
+
+.card-thumb-badge .thumb-tag--live:hover {
+  background: #E2AF8E;
+  color: #0D130C;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(226, 175, 142, 0.5);
+}
+
+.card-external-store {
+  display: inline-flex;
+  align-items: center;
+  gap: 5px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: #E2AF8E;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+  margin-top: 4px;
+  transition: color 180ms ease;
+}
+
+.card-external-store:hover {
+  color: #FFFFFF;
+}
+
+.live-dot-sm {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #4ADE80;
+  box-shadow: 0 0 6px #4ADE80;
+  display: inline-block;
+  animation: pulseLiveDot 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseLiveDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
 }
 
 /* Card Caption */
