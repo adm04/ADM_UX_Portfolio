@@ -317,12 +317,7 @@ body.aanvi-body {
   width: 100%;
   height: auto;
   margin: 0;
-  /* Ultra-sharp anti-blur raster filtering */
-  image-rendering: -webkit-optimize-contrast;
-  image-rendering: high-quality;
-  -webkit-backface-visibility: hidden;
-  backface-visibility: hidden;
-  transform: translateZ(0);
+  image-rendering: auto;
 }
 
 /* ═══════════════════════ CLEAN FOOTER ═══════════════════════ */
