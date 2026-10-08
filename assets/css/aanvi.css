@@ -293,17 +293,17 @@ body.aanvi-body {
 .aanvi-seamless-stack {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  align-items: stretch;
   width: 100%;
-  max-width: 1024px;
-  margin-inline: auto;
-  margin-bottom: 60px;
+  max-width: 100%;
+  margin: 0 0 60px 0;
   padding: 0;
   gap: 0; /* completely seamless vertical flow */
 }
 
 .aanvi-stack-item {
   width: 100%;
+  max-width: 100%;
   display: block;
   margin: 0;
   padding: 0;
@@ -315,8 +315,12 @@ body.aanvi-body {
 .aanvi-stack-item img {
   display: block;
   width: 100%;
+  max-width: 100%;
+  min-width: 100%;
   height: auto;
   margin: 0;
+  border: 0;
+  outline: none;
   image-rendering: auto;
 }
 

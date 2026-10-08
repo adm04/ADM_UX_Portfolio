@@ -3,7 +3,7 @@
 > **Live Website:** [https://adm04.github.io/ADM_UX_Portfolio/](https://adm04.github.io/ADM_UX_Portfolio/)  
 > **Case Studies:**  
 > - [LUMA Design System](https://adm04.github.io/ADM_UX_Portfolio/luma.html) (8 Sequential Acts)  
-> - [Aanvi 925 Silver Jewellery](https://adm04.github.io/ADM_UX_Portfolio/aanvi.html) (8-Part Brand & E-Commerce Serial)  
+> - [Aanvi 925 Silver Jewellery](https://adm04.github.io/ADM_UX_Portfolio/aanvi.html) (Brand Identity & Digital Experience)  
 > - [Career Restart & Learning](https://adm04.github.io/ADM_UX_Portfolio/career-restart.html)
 
 Personal design & engineering portfolio of **Arkadeb Mondal** ([@adm04](https://github.com/adm04)).
@@ -27,7 +27,7 @@ Personal design & engineering portfolio of **Arkadeb Mondal** ([@adm04](https://
 │   └── images/
 │       ├── avatars/
 │       ├── projects/
-│       │   ├── aanvi/ (8-Part Serial Boards)
+│       │   ├── aanvi/ (Case Study Presentation Boards)
 │       │   ├── luma/ (8 Sequential Acts)
 │       │   ├── luma_cover.jpg
 │       │   ├── aanvi_website.jpg
