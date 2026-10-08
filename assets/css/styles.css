@@ -680,6 +680,13 @@ code {
   position: relative;
 }
 
+/* Card — Elaara Thumbnail */
+.card-thumb-elaara {
+  background: radial-gradient(circle at 50% 30%, #2A1322 0%, #0A0709 100%);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
 /* Card — Aanvi 925 Silver Thumbnail */
 .card-thumb-aanvi {
   background: radial-gradient(circle at 50% 30%, #151F13 0%, #080C07 100%);
@@ -713,6 +720,30 @@ code {
   box-shadow: 0 0 12px rgba(123, 148, 110, 0.4);
 }
 
+.card-thumb-badge .thumb-tag--elaara-case {
+  background: rgba(68, 28, 55, 0.65);
+  border-color: #D6A168;
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(214, 161, 104, 0.4);
+}
+
+.card-thumb-badge .thumb-tag--live-elaara {
+  pointer-events: auto;
+  background: rgba(214, 161, 104, 0.22);
+  border-color: #D6A168;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(214, 161, 104, 0.35);
+  transition: all 180ms ease;
+}
+
+.card-thumb-badge .thumb-tag--live-elaara:hover {
+  background: #D6A168;
+  color: #0A0709;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(214, 161, 104, 0.55);
+}
+
 .card-thumb-badge .thumb-tag--live {
   pointer-events: auto;
   background: rgba(226, 175, 142, 0.25);
@@ -741,6 +772,10 @@ code {
   text-underline-offset: 3px;
   margin-top: 4px;
   transition: color 180ms ease;
+}
+
+.card-external-store--elaara {
+  color: #D6A168;
 }
 
 .card-external-store:hover {

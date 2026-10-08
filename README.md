@@ -4,6 +4,7 @@
 > **Case Studies:**  
 > - [LUMA Design System](https://adm04.github.io/ADM_UX_Portfolio/luma.html) (8 Sequential Acts)  
 > - [Aanvi 925 Silver Jewellery](https://adm04.github.io/ADM_UX_Portfolio/aanvi.html) (Brand Identity & Digital Experience)  
+> - [Elaara Demi-Fine Jewellery](https://adm04.github.io/ADM_UX_Portfolio/elaara.html) (Brand Identity & Digital Experience)  
 > - [Career Restart & Learning](https://adm04.github.io/ADM_UX_Portfolio/career-restart.html)
 
 Personal design & engineering portfolio of **Arkadeb Mondal** ([@adm04](https://github.com/adm04)).
@@ -18,12 +19,17 @@ Personal design & engineering portfolio of **Arkadeb Mondal** ([@adm04](https://
 │   │   ├── styles.css
 │   │   ├── case-study.css
 │   │   ├── luma.css
-│   │   └── aanvi.css
+│   │   ├── aanvi.css
+│   │   └── elaara.css
 │   ├── js/
 │   │   ├── main.js
 │   │   ├── case-study.js
 │   │   ├── luma.js
-│   │   └── aanvi.js
+│   │   ├── aanvi.js
+│   │   └── elaara.js
+│   ├── docs/
+│   │   ├── aanvi-case-study.pdf
+│   │   └── elaara-case-study.pdf
 │   └── images/
 │       ├── avatars/
 │       ├── projects/

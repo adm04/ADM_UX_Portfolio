@@ -1,0 +1,523 @@
+/* ══════════════════════════════════════════════════════════════════════
+   elaara.css — High-Resolution Vector Presentation Case Study
+   Arkadeb Mondal Portfolio UX — Elaara 925 Silver Demi-Fine Jewellery
+   ══════════════════════════════════════════════════════════════════════ */
+
+:root {
+  --elaara-bg: #0A0709;
+  --elaara-surface: #160F14;
+  --elaara-surface-glass: rgba(22, 15, 20, 0.88);
+  --elaara-border: rgba(214, 161, 104, 0.22);
+  --elaara-border-subtle: rgba(255, 255, 255, 0.06);
+
+  --elaara-amethyst: #441C37;
+  --elaara-aubergine: #22131E;
+  --elaara-gold: #D6A168;
+  --elaara-gold-glow: rgba(214, 161, 104, 0.4);
+  --elaara-ivory: #F7F4F1;
+  --elaara-silver: #E5E7EB;
+
+  --elaara-text-primary: #F9F7F5;
+  --elaara-text-secondary: #A39B9F;
+  --elaara-dim: #6B6267;
+
+  --font-serif: 'Lora', serif;
+  --font-sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Space Mono', monospace;
+
+  --radius-sm: 6px;
+  --radius-md: 12px;
+  --radius-pill: 100px;
+}
+
+*, *::before, *::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--elaara-bg);
+}
+
+body.elaara-body {
+  margin: 0;
+  padding: 0;
+  background-color: var(--elaara-bg);
+  color: var(--elaara-text-primary);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ═══════════════════════ READING PROGRESS ═══════════════════════ */
+.elaara-progress-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 3px;
+  background: transparent;
+  z-index: 1100;
+  pointer-events: none;
+}
+
+.elaara-progress-bar {
+  height: 100%;
+  width: 0%;
+  background: linear-gradient(90deg, var(--elaara-amethyst), var(--elaara-gold));
+  box-shadow: 0 0 10px var(--elaara-gold-glow);
+  transition: width 80ms ease-out;
+}
+
+/* ═══════════════════════ TOP NAVIGATION ═══════════════════════ */
+.elaara-topnav {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: var(--elaara-surface-glass);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-bottom: 1px solid var(--elaara-border);
+  transition: background 240ms ease, box-shadow 240ms ease;
+}
+
+.elaara-topnav.scrolled {
+  background: rgba(10, 7, 9, 0.95);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.7);
+}
+
+.elaara-topnav-inner {
+  max-width: 1200px;
+  margin-inline: auto;
+  padding: 12px clamp(16px, 3vw, 32px);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+}
+
+.elaara-nav-left {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.elaara-back-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  color: var(--elaara-text-secondary);
+  text-decoration: none;
+  padding: 6px 12px;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--elaara-border);
+  background: rgba(255, 255, 255, 0.03);
+  transition: all 180ms ease;
+}
+
+.elaara-back-link:hover {
+  color: #FFFFFF;
+  border-color: var(--elaara-gold);
+  background: rgba(214, 161, 104, 0.15);
+  transform: translateX(-2px);
+}
+
+.elaara-brand-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--elaara-text-primary);
+  text-transform: uppercase;
+}
+
+.elaara-brand-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--elaara-gold);
+  box-shadow: 0 0 8px var(--elaara-gold-glow);
+}
+
+.elaara-nav-right {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.elaara-store-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11.5px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(68, 28, 55, 0.65);
+  border: 1px solid var(--elaara-gold);
+  padding: 7px 16px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  box-shadow: 0 0 14px rgba(214, 161, 104, 0.25);
+  transition: all 200ms ease;
+  white-space: nowrap;
+}
+
+.elaara-store-pill:hover {
+  background: var(--elaara-gold);
+  color: #0A0709;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 18px var(--elaara-gold-glow);
+}
+
+.live-dot {
+  width: 7px;
+  height: 7px;
+  border-radius: 50%;
+  background: #4ADE80;
+  box-shadow: 0 0 8px #4ADE80;
+  animation: pulseDot 1.8s infinite ease-in-out;
+}
+
+@keyframes pulseDot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+/* ═══════════════════════ MINIMAL PROJECT HERO ═══════════════════════ */
+.elaara-hero {
+  padding: clamp(36px, 6vw, 70px) clamp(16px, 4vw, 32px) clamp(24px, 4vw, 40px);
+  max-width: 1024px;
+  margin-inline: auto;
+  text-align: center;
+}
+
+.elaara-hero-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+}
+
+.elaara-hero-prompt {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--elaara-gold);
+  background: rgba(214, 161, 104, 0.1);
+  border: 1px solid rgba(214, 161, 104, 0.3);
+  padding: 5px 14px;
+  border-radius: var(--radius-pill);
+}
+
+.prompt-sparkle {
+  color: var(--elaara-gold);
+}
+
+.elaara-hero-title {
+  font-family: var(--font-serif);
+  font-size: clamp(26px, 4vw, 44px);
+  font-weight: 500;
+  line-height: 1.25;
+  color: #FFFFFF;
+  margin: 0;
+  max-width: 860px;
+}
+
+.text-gold {
+  color: var(--elaara-gold);
+  font-style: italic;
+}
+
+.elaara-hero-lead {
+  font-size: clamp(14px, 1.4vw, 16px);
+  color: var(--elaara-text-secondary);
+  max-width: 720px;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.elaara-hero-actions {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-top: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.elaara-cta-storefront {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #0A0709;
+  background: linear-gradient(135deg, var(--elaara-gold), #F4D3B0);
+  padding: 11px 24px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  box-shadow: 0 4px 20px var(--elaara-gold-glow);
+  transition: all 200ms ease;
+  white-space: nowrap;
+}
+
+.elaara-cta-storefront:hover {
+  background: #FFFFFF;
+  color: #0A0709;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 26px rgba(255, 255, 255, 0.4);
+}
+
+.elaara-cta-pdf {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  background: rgba(68, 28, 55, 0.3);
+  border: 1px solid var(--elaara-gold);
+  padding: 11px 22px;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  transition: all 200ms ease;
+  white-space: nowrap;
+}
+
+.elaara-cta-pdf:hover {
+  background: var(--elaara-gold);
+  color: #0A0709;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 22px var(--elaara-gold-glow);
+}
+
+/* ═══════════════════════ VECTOR CASE STUDY PDF EMBED ═══════════════════════ */
+.elaara-pdf-section {
+  width: 100%;
+  max-width: 100%;
+  margin: 0 auto 60px auto;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+
+.elaara-pdf-toolbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 14px clamp(16px, 3.5vw, 40px);
+  background: var(--elaara-surface);
+  border-top: 1px solid var(--elaara-border);
+  border-bottom: 1px solid var(--elaara-border);
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.elaara-pdf-info {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.pdf-tag {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  color: var(--elaara-gold);
+  background: rgba(214, 161, 104, 0.12);
+  border: 1px solid rgba(214, 161, 104, 0.35);
+  padding: 4px 10px;
+  border-radius: var(--radius-sm);
+}
+
+.pdf-title {
+  font-size: 13.5px;
+  color: var(--elaara-text-secondary);
+  font-weight: 500;
+}
+
+.elaara-pdf-actions {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.elaara-btn-sm {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--elaara-text-primary);
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid var(--elaara-border);
+  padding: 7px 14px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 180ms ease;
+  white-space: nowrap;
+}
+
+.elaara-btn-sm:hover {
+  background: rgba(214, 161, 104, 0.2);
+  border-color: var(--elaara-gold);
+  color: #FFFFFF;
+  transform: translateY(-1px);
+}
+
+.elaara-pdf-wrapper {
+  width: 100%;
+  height: 92vh;
+  min-height: 820px;
+  background: #0A0709;
+  position: relative;
+  overflow: hidden;
+  box-shadow: inset 0 2px 20px rgba(0, 0, 0, 0.85);
+}
+
+.elaara-pdf-embed,
+.elaara-pdf-iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  display: block;
+  background: transparent;
+}
+
+.elaara-pdf-fallback {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+  height: 100%;
+  min-height: 400px;
+  padding: 40px 20px;
+  text-align: center;
+  background: var(--elaara-surface);
+  color: var(--elaara-text-secondary);
+}
+
+/* ═══════════════════════ CLEAN FOOTER ═══════════════════════ */
+.elaara-footer {
+  border-top: 1px solid var(--elaara-border);
+  padding-block: 48px 36px;
+  margin-top: 40px;
+  background: rgba(22, 15, 20, 0.7);
+}
+
+.elaara-footer-inner {
+  max-width: 1024px;
+  margin-inline: auto;
+  padding-inline: clamp(16px, 3vw, 32px);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  text-align: center;
+}
+
+.elaara-footer-links {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+
+.elaara-footer-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--elaara-text-secondary);
+  background: rgba(255, 255, 255, 0.03);
+  border: 1px solid var(--elaara-border);
+  padding: 10px 18px;
+  border-radius: var(--radius-sm);
+  text-decoration: none;
+  transition: all 180ms ease;
+}
+
+.elaara-footer-btn:hover {
+  color: #FFFFFF;
+  border-color: var(--elaara-gold);
+  background: rgba(214, 161, 104, 0.2);
+  transform: translateY(-2px);
+}
+
+.elaara-footer-btn--live {
+  border-color: var(--elaara-gold);
+  color: #FFFFFF;
+  background: rgba(68, 28, 55, 0.55);
+  box-shadow: 0 0 14px rgba(214, 161, 104, 0.25);
+}
+
+.elaara-footer-btn--live:hover {
+  background: var(--elaara-gold);
+  color: #0A0709;
+}
+
+.elaara-footer-copy {
+  font-family: var(--font-mono);
+  font-size: 11px;
+  color: var(--elaara-dim);
+  margin: 0;
+}
+
+/* Standard icon helper */
+.icon-std {
+  display: inline-block;
+  vertical-align: middle;
+  flex-shrink: 0;
+}
+
+/* Mobile responsive adjustments */
+@media (max-width: 640px) {
+  .elaara-topnav-inner {
+    padding-inline: 14px;
+  }
+  
+  .elaara-brand-tag {
+    display: none;
+  }
+  
+  .elaara-store-pill {
+    padding: 6px 12px;
+    font-size: 10.5px;
+  }
+}
