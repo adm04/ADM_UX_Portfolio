@@ -687,6 +687,10 @@ code {
   position: relative;
 }
 
+.card-thumb-elaara img {
+  object-position: top center;
+}
+
 /* Card — Aanvi 925 Silver Thumbnail */
 .card-thumb-aanvi {
   background: radial-gradient(circle at 50% 30%, #151F13 0%, #080C07 100%);
