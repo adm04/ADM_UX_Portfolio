@@ -691,6 +691,17 @@ code {
   object-position: top center;
 }
 
+/* Card — Z18 18K Fine Jewellery Thumbnail */
+.card-thumb-z18 {
+  background: radial-gradient(circle at 50% 30%, #200012 0%, #09090B 100%);
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.card-thumb-z18 img {
+  object-position: top center;
+}
+
 /* Card — Aanvi 925 Silver Thumbnail */
 .card-thumb-aanvi {
   background: radial-gradient(circle at 50% 30%, #151F13 0%, #080C07 100%);
@@ -729,6 +740,30 @@ code {
   border-color: #D6A168;
   color: #FFFFFF;
   box-shadow: 0 0 12px rgba(214, 161, 104, 0.4);
+}
+
+.card-thumb-badge .thumb-tag--z18-case {
+  background: rgba(191, 0, 107, 0.45);
+  border-color: #F458B8;
+  color: #FFFFFF;
+  box-shadow: 0 0 12px rgba(244, 88, 184, 0.4);
+}
+
+.card-thumb-badge .thumb-tag--live-z18 {
+  pointer-events: auto;
+  background: rgba(244, 88, 184, 0.22);
+  border-color: #F458B8;
+  color: #FFFFFF;
+  text-decoration: none;
+  box-shadow: 0 0 12px rgba(244, 88, 184, 0.35);
+  transition: all 180ms ease;
+}
+
+.card-thumb-badge .thumb-tag--live-z18:hover {
+  background: #F458B8;
+  color: #111111;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 16px rgba(244, 88, 184, 0.55);
 }
 
 .card-thumb-badge .thumb-tag--live-elaara {
@@ -780,6 +815,10 @@ code {
 
 .card-external-store--elaara {
   color: #D6A168;
+}
+
+.card-external-store--z18 {
+  color: #F458B8;
 }
 
 .card-external-store:hover {
