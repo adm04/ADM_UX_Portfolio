@@ -687,6 +687,10 @@ code {
   position: relative;
 }
 
+.card-thumb-aanvi img {
+  object-position: top center;
+}
+
 .card-thumb-badge {
   position: absolute;
   top: 14px;
@@ -782,7 +786,8 @@ code {
   transition: color var(--transition);
 }
 
-.card-title-link:hover .card-title {
+.card-title-link:hover .card-title,
+a.card-title:hover {
   color: var(--accent-red);
 }
 
